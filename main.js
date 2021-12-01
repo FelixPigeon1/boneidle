@@ -8,6 +8,7 @@ const milkCost = document.getElementById('milk');
 const SkeletonCost = document.getElementById('skeletons');
 const SkeleJobs = document.getElementById('SkeleButtons');
 const SkeleCount = document.getElementById('SkeleAssign');
+const BoneImage = document.getElementById('clicker')
 const cps = setInterval(production, 1000);
 const totalUpdate = setInterval(totalCounter, 10);
 
@@ -34,6 +35,8 @@ if (document.getElementById('clicker')){
         count += clickAmount[0];
         counter.innerHTML = "Bones: " + count;
         fartus.innerHTML = "";
+        BoneImage.style.resize = "width:90 height:90";
+        
     }
 }
 
