@@ -7,6 +7,7 @@ const fartus = document.getElementById('status');
 const milkCost = document.getElementById('milk');
 const SkeletonCost = document.getElementById('skeletons');
 const SkeleJobs = document.getElementById('SkeleButtons');
+const SkeleCount = document.getElementById('SkeleAssign');
 const cps = setInterval(production, 1000);
 const totalUpdate = setInterval(totalCounter, 10);
 
@@ -53,6 +54,7 @@ if (document.getElementById('skeletons')){
 if (document.getElementById('warriorButton')){
     document.getElementById('warriorButton').onclick = function() {
         if (skeleton[0] >= 1) {
+            skeleton[0]--;
             skeletonAssign[0]++;
         }
     }
@@ -61,6 +63,7 @@ if (document.getElementById('warriorButton')){
 if (document.getElementById('alchemistButton')){
     document.getElementById('alchemistButton').onclick = function() {
         if (skeleton[0] >= 1) {
+            skeleton[0]--;
             skeletonAssign[1]++;
         }
     }
@@ -69,6 +72,7 @@ if (document.getElementById('alchemistButton')){
 if (document.getElementById('workerButton')){
     document.getElementById('workerButton').onclick = function() {
         if (skeleton[0] >= 1) {
+            skeleton[0]--;
             skeletonAssign[2]++;
         }
     }
@@ -80,4 +84,5 @@ function production() {
 
 function totalCounter() {
     counter.innerHTML = "Bones: " + count + " Skeletons: " + skeleton[0];
+    SkeleCount.innerHTML = "Warriors: " + skeletonAssign[0] + " Alchemists: " + skeletonAssign[1] + " Workers: " + skeletonAssign[2];
 }
