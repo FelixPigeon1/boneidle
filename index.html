@@ -14,7 +14,7 @@
             padding-top: 10px;
         }
         #buttons {
-            text-align: left;
+            text-align: right;
         }
         /*#clicker {
             margin-left: 50px;
@@ -25,6 +25,10 @@
         #SkeleAssign {
             font-size: x-large;
             
+        }
+        button:disabled {
+            background: #F5F5F5;
+            color : #C3C3C3;
         }
     </style>
     <body>
@@ -48,7 +52,11 @@
         <br>
         <div id="buttons">
             <div id = "upgrades">
-                <button id="milk" title="Doubles the amount of bones per click.">Buy Milk: 100</button>
+                <p>UPGRADES:</p>
+                <button enabled id="milk" title="Doubles the amount of bones per click.">Buy Milk: 100 bones</button>
+                <br>
+                <button id="tools" title="Doubles prodution of worker skeletons">Buy Tools: 100 bones<span style="color: red;"> Need 10 Alchemists!</span></button>
+
             </div>
         </div>
         

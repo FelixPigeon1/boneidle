@@ -1,10 +1,11 @@
-let count = 206;
-let clickAmount = [1, 100];
-let skeleton = [0, 206];
-let skeletonAssign = [0,0,0];
+let count = 306;
+let clickAmount = 1;
+let skeleton = [1, 206];
+let skeletonAssign = [0,8,0];
+let production_amt = 0.25;
 const counter = document.getElementById('bones');
 const fartus = document.getElementById('status');
-const milkCost = document.getElementById('milk');
+const milkCost = document.getElementById('upgrades');
 const SkeletonCost = document.getElementById('skeletons');
 const SkeleJobs = document.getElementById('SkeleButtons');
 const SkeleCount = document.getElementById('SkeleAssign');
@@ -12,24 +13,17 @@ const BoneImage = document.getElementById('clicker')
 const cps = setInterval(production, 1000);
 const totalUpdate = setInterval(totalCounter, 10);
 
+///////////
+//BUTTONS//
+///////////
+
+//hides upgrade buttons on page start
 if (document.getElementById('SkeleButtons')){
-    SkeleJobs.style.display = "none"
-    milkCost.style.display = "none"
+    SkeleJobs.style.display = "none";
+    milkCost.style.display = "none";
 }
 
-if (document.getElementById('milk')){
-    document.getElementById('milk').onclick = function() {
-        if (count >= clickAmount[1]){
-            count -= clickAmount[1];
-            clickAmount[0] *= 2;
-            milkCost.style.display = "none"
-        }
-        else {
-            fartus.innerHTML = "Not enough bones!";
-        }
-    };
-}
-
+//clicker function, increased bone count every time the bone is clicked 
 if (document.getElementById('clicker')){
     document.getElementById('clicker').onclick = function() {
         count += clickAmount[0];
@@ -37,20 +31,6 @@ if (document.getElementById('clicker')){
         fartus.innerHTML = "";
         BoneImage.style.resize = "width:90 height:90";
         
-    }
-}
-
-if (document.getElementById('skeletons')){
-    document.getElementById('skeletons').onclick = function() {
-        if (count >= skeleton[1]){
-        count -= skeleton[1];
-        skeleton[0]++;
-        SkeletonCost.innerHTML = "Buy Skeleton: " + skeleton[1];
-        SkeleJobs.style.display = "block";
-        }
-        else {
-            fartus.innerHTML = "Not enough bones!";
-        }
     }
 }
 
@@ -81,13 +61,71 @@ if (document.getElementById('workerButton')){
         }
     }
 }
+
+////////////
+//UPGRADES//
+////////////
+
+if (document.getElementById('skeletons')){
+    document.getElementById('skeletons').onclick = function() {
+        if (count >= skeleton[1]){
+        count -= skeleton[1];
+        skeleton[0]++;
+        SkeletonCost.innerHTML = "Buy Skeleton: " + skeleton[1];
+        SkeleJobs.style.display = "block";
+        }
+        else {
+            fartus.innerHTML = "Not enough bones!";
+        }
+    }
+}
+
+if (document.getElementById('milk')){
+    document.getElementById('milk').onclick = function() {
+        if (count >= 100){
+            count -= 100;
+            clickAmount *= 2;
+            document.getElementById('milk').setAttribute('disabled', true);
+        }
+        else {
+            fartus.innerHTML = "Not enough bones!";
+        }
+    }
+}
+
+if (document.getElementById('tools')){
+    document.getElementById('tools').onclick = function() {
+        if (count >= 100 && skeletonAssign[1] >= 10) {
+            count -= 100;
+            production_amt *= 2;
+            document.getElementById('tools').setAttribute('disabled', true);
+            
+        }
+        else if (skeletonAssign[1] < 10) {
+            fartus.innerHTML = "Not Enough Alchemists!";
+
+        }
+        else {
+            fartus.innerHTML = "Not enough bones!";
+        }
+    }
+}
+
+
+//////////////////////////
+//PRODUCTION AND COUNTER//
+//////////////////////////
+
 function production() {
-    count += skeletonAssign[2] * 0.25;
+    count += skeletonAssign[2] * production_amt;
 
 }
 
 function totalCounter() {
     counter.innerHTML = "Bones: " + count + " Skeletons: " + skeleton[0];
     SkeleCount.innerHTML = "Warriors: " + skeletonAssign[0] + " Alchemists: " + skeletonAssign[1] + " Workers: " + skeletonAssign[2];
+    if (skeletonAssign[1] >= 10) {
+        document.getElementById("tools").innerHTML = "Buy tools: 100 bones";
+    }
 }
 
