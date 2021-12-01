@@ -9,7 +9,6 @@ const SkeletonCost = document.getElementById('skeletons');
 const SkeleJobs = document.getElementById('SkeleButtons');
 const cps = setInterval(production, 1000);
 const totalUpdate = setInterval(totalCounter, 10);
-const 
 
 if (document.getElementById('SkeleButtons')){
     SkeleJobs.style.display = "none"
