@@ -26,7 +26,7 @@ if (document.getElementById('SkeleButtons')){
 //clicker function, increased bone count every time the bone is clicked 
 if (document.getElementById('clicker')){
     document.getElementById('clicker').onclick = function() {
-        count += clickAmount[0];
+        count += clickAmount;
         counter.innerHTML = "Bones: " + count;
         fartus.innerHTML = "";
         BoneImage.style.resize = "width:90 height:90";
