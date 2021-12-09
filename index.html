@@ -36,10 +36,10 @@
         </div>
         <button id="skeletons" style="height: 100px;width: 100px;font-size: 15px;padding-bottom: 5px;">Buy Skeleton: 206</button>
       
-        <div id="SkeleButtons">
-            <button id="warriorButton">Train Warrior</button>
-            <button id="alchemistButton">Train Alchemist</button>
-            <button id="workerButton">Train Worker</button>
+        <div id="SkeleButtons" style="padding-top: 5px">
+            <button id="warriorButton" style="height: 100px;width: 100px;font-size: 15px;padding: 5px;">Train Warrior</button>
+            <button id="alchemistButton" style="height: 100px;width: 100px;font-size: 15px;padding: 5px;">Train Alchemist</button>
+            <button id="workerButton" style="height: 100px;width: 100px;font-size: 15px;">Train Worker</button>
             <br>
             <p id="SkeleAssign"></p>
         </div>
@@ -49,16 +49,21 @@
         
         <img id="clicker" src = "images/Bone.png" alt="buttonpress"/>
         
-        <br>
-        <div id="buttons">
+        <div id="buttons" style="float: right;">
             <div id = "upgrades">
                 <p>UPGRADES:</p>
-                <button enabled id="milk" title="Doubles the amount of bones per click.">Buy Milk: 100 bones</button>
-                <br>
-                <button id="tools" title="Doubles prodution of worker skeletons">Buy Tools: 100 bones<span style="color: red;"> Need 10 Alchemists!</span></button>
-
+                <div id=milk>
+                <button id="Bmilk" title="Doubles the amount of bones per click.">Buy Milk: 100 bones</button>
+                </div>
+                <div id="tools">
+                <button id="Btools" title="Doubles prodution of worker skeletons">Buy Tools: 100 bones<span style="color: red;"> Need 10 Alchemists!</span></button>
+                </div>
+                <div id = "weapons">
+                <button id="Bweapons" title="Makes warriors deal more damage"><Buy Weapons: 100 bones<span style="color: red;"> Need 10 Alchemists!</span></button>
+                </div>
             </div>
         </div>
+        
         
 
         <div id="status">

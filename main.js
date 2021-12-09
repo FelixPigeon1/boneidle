@@ -5,7 +5,7 @@ let skeletonAssign = [0,8,0];
 let production_amt = 0.25;
 const counter = document.getElementById('bones');
 const fartus = document.getElementById('status');
-const milkCost = document.getElementById('upgrades');
+const Upgrades = document.getElementById('upgrades');
 const SkeletonCost = document.getElementById('skeletons');
 const SkeleJobs = document.getElementById('SkeleButtons');
 const SkeleCount = document.getElementById('SkeleAssign');
@@ -20,7 +20,7 @@ const totalUpdate = setInterval(totalCounter, 10);
 //hides upgrade buttons on page start
 if (document.getElementById('SkeleButtons')){
     SkeleJobs.style.display = "none";
-    milkCost.style.display = "none";
+    Upgrades.style.display = "none";
 }
 
 //clicker function, increased bone count every time the bone is clicked 
@@ -48,7 +48,7 @@ if (document.getElementById('alchemistButton')){
         if (skeleton[0] >= 1) {
             skeleton[0]--;
             skeletonAssign[1]++;
-            milkCost.style.display = "block";
+            Upgrades.style.display = "block";
         }
     }
 }
@@ -81,11 +81,13 @@ if (document.getElementById('skeletons')){
 }
 
 if (document.getElementById('milk')){
-    document.getElementById('milk').onclick = function() {
+    document.getElementById('Bmilk').onclick = function() {
         if (count >= 100){
             count -= 100;
             clickAmount *= 2;
-            document.getElementById('milk').setAttribute('disabled', true);
+            const milkbutton = document.getElementById('milk')
+            milkbutton.style.display = "none"
+
         }
         else {
             fartus.innerHTML = "Not enough bones!";
@@ -94,11 +96,12 @@ if (document.getElementById('milk')){
 }
 
 if (document.getElementById('tools')){
-    document.getElementById('tools').onclick = function() {
+    document.getElementById('Btools').onclick = function() {
         if (count >= 100 && skeletonAssign[1] >= 10) {
             count -= 100;
             production_amt *= 2;
-            document.getElementById('tools').setAttribute('disabled', true);
+            const toolsbutton = document.getElementById('tools')
+            toolsbutton.remove()
             
         }
         else if (skeletonAssign[1] < 10) {
@@ -125,7 +128,7 @@ function totalCounter() {
     counter.innerHTML = "Bones: " + count + " Skeletons: " + skeleton[0];
     SkeleCount.innerHTML = "Warriors: " + skeletonAssign[0] + " Alchemists: " + skeletonAssign[1] + " Workers: " + skeletonAssign[2];
     if (skeletonAssign[1] >= 10) {
-        document.getElementById("tools").innerHTML = "Buy tools: 100 bones";
+        document.getElementById("Btools").innerHTML = "Buy tools: 100 bones";
     }
 }
 
