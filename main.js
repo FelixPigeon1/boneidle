@@ -15,7 +15,7 @@ const totalUpdate = setInterval(totalCounter, 10);
 
 ///////////
 //BUTTONS//
-///////////
+/////////// 
 
 //hides upgrade buttons on page start
 if (document.getElementById('SkeleButtons')){
@@ -114,6 +114,24 @@ if (document.getElementById('tools')){
     }
 }
 
+if (document.getElementById('weapons')){
+    document.getElementById('Bweapons').onclick = function() {
+        if (count >= 100 && skeletonAssign[1] >= 10) {
+            count -= 100;
+            production_amt *= 2;
+            const weaponsbutton = document.getElementById('weapons')
+            weaponsbutton.remove()
+            
+        }
+        else if (skeletonAssign[1] < 10) {
+            fartus.innerHTML = "Not Enough Alchemists!";
+
+        }
+        else {
+            fartus.innerHTML = "Not enough bones!";
+        }
+    }
+}
 
 //////////////////////////
 //PRODUCTION AND COUNTER//
@@ -129,6 +147,7 @@ function totalCounter() {
     SkeleCount.innerHTML = "Warriors: " + skeletonAssign[0] + " Alchemists: " + skeletonAssign[1] + " Workers: " + skeletonAssign[2];
     if (skeletonAssign[1] >= 10) {
         document.getElementById("Btools").innerHTML = "Buy tools: 100 bones";
+        document.getElementById("Bweapons").innerHTML = "Buy weapons: 100 bones"
     }
 }
 
