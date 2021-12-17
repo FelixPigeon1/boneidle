@@ -151,3 +151,7 @@ function totalCounter() {
     }
 }
 
+function boneAnim () {
+    BoneImage.style.width = "112px"
+    BoneImage.style.height = "112px"
+}

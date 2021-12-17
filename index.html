@@ -30,26 +30,66 @@
             background: #F5F5F5;
             color : #C3C3C3;
         }
+            /* Style the tab */
+        .tab {
+        overflow: hidden;
+        border: 1px solid #ccc;
+        background-color: #f1f1f1;
+        }
+
+        /* Style the buttons inside the tab */
+        .tab button {
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+        font-size: 17px;
+        }
+
+        /* Change background color of buttons on hover */
+        .tab button:hover {
+        background-color: #ddd;
+        }
+
+        /* Create an active/current tablink class */
+        .tab button.active {
+        background-color: #ccc;
+        }
+
+        /* Style the tab content */
+        .tabcontent {
+        display: none;
+        padding: 6px 12px;
+        border: 1px solid #ccc;
+        border-top: none;
+}
+
     </style>
     <body>
+        <div class="tab">
+            <button class="tablinks" onclick="openCity(event, 'Production')">Production</button>
+            <button class="tablinks" onclick="openCity(event, 'Upgrades')">Upgrades</button>
+            <button class="tablinks" onclick="openCity(event, 'Map')">Map</button>
+          </div>
         <div id="bones">
         </div>
-        <button id="skeletons" style="height: 100px;width: 100px;font-size: 15px;padding-bottom: 5px;">Buy Skeleton: 206</button>
-      
-        <div id="SkeleButtons" style="padding-top: 5px">
-            <button id="warriorButton" style="height: 100px;width: 100px;font-size: 15px;padding: 5px;">Train Warrior</button>
-            <button id="alchemistButton" style="height: 100px;width: 100px;font-size: 15px;padding: 5px;">Train Alchemist</button>
-            <button id="workerButton" style="height: 100px;width: 100px;font-size: 15px;">Train Worker</button>
+        <div id="Production" class="tabcontent">
+            <img id="clicker" src = "images/Bone.png" alt="buttonpress"/>
             <br>
-            <p id="SkeleAssign"></p>
+            <button id="skeletons" style="height: 100px;width: 100px;font-size: 15px;padding-bottom: 5px;">Buy Skeleton: 206</button>
+                <div id="SkeleButtons" style="padding-top: 5px">
+                    <button id="warriorButton" style="height: 100px;width: 100px;font-size: 15px;padding: 5px;">Train Warrior</button>
+                    <button id="alchemistButton" style="height: 100px;width: 100px;font-size: 15px;padding: 5px;">Train Alchemist</button>
+                    <button id="workerButton" style="height: 100px;width: 100px;font-size: 15px;">Train Worker</button>
+                    <br>
+                    <p id="SkeleAssign"></p>
+                </div>    
         </div>
-        
-        <div id="bones">
-        </div>
-        
-        <img id="clicker" src = "images/Bone.png" alt="buttonpress"/>
-        
-        <div id="buttons" style="float: right;">
+          
+        <div id="Upgrades" class="tabcontent">
             <div id = "upgrades">
                 <p>UPGRADES:</p>
                 <div id=milk>
@@ -62,6 +102,21 @@
                 <button id="Bweapons" title="Makes warriors deal more damage">Buy Weapons: 100 bones<span style="color: red;"> Need 10 Alchemists!</span></button>
                 </div>
             </div>
+            
+        </div>
+          
+        <div id="Map" class="tabcontent">
+         
+
+        </div>
+     
+        <div id="bones">
+        </div>
+        
+      
+        
+        <div id="buttons" style="float: right;">
+            
         </div>
         
         
@@ -71,5 +126,20 @@
    
 
         <script src="main.js"></script>
+        <script>
+            function openCity(evt, cityName) {
+              var i, tabcontent, tablinks;
+              tabcontent = document.getElementsByClassName("tabcontent");
+              for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+              }
+              tablinks = document.getElementsByClassName("tablinks");
+              for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+              }
+              document.getElementById(cityName).style.display = "block";
+              evt.currentTarget.className += " active";
+            }
+            </script>
     </body>
 </html>
