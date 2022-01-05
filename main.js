@@ -146,12 +146,11 @@ function totalCounter() {
     counter.innerHTML = "Bones: " + count + " Skeletons: " + skeleton[0];
     SkeleCount.innerHTML = "Warriors: " + skeletonAssign[0] + " Alchemists: " + skeletonAssign[1] + " Workers: " + skeletonAssign[2];
     if (skeletonAssign[1] >= 10) {
-        document.getElementById("Btools").innerHTML = "Buy tools: 100 bones";
-        document.getElementById("Bweapons").innerHTML = "Buy weapons: 100 bones"
+        document.getElementById("Btools").innerHTML = "Buy Tools: 100 bones";
+        document.getElementById("Bweapons").innerHTML = "Buy Weapons: 100 bones"
     }
 }
 
 function boneAnim () {
-    BoneImage.style.width = "112px"
-    BoneImage.style.height = "112px"
+a
 }

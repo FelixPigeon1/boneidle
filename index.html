@@ -17,13 +17,15 @@
         <div id="bones" style="color: #ffffff;">
         </div>
         <div id="Production" class="tabcontent">
-            <img id="clicker" src = "images/Bone.png" alt="buttonpress"/>
+            <input type="checkbox" id="btnControl">
+            <label class="btn" for="btnControl"><img src="images/Bone.png">
+            <img id="clicker" src = "images/Bone.png" alt="buttonpress" class="boneclicker"/>
             <br>
-            <button id="skeletons" style="height: 100px;width: 100px;font-size: 15px;padding-bottom: 5px;" class="button">Buy Skeleton: 206</button>
+            <button id="skeletons" class="button">Buy Skeleton: 206</button>
                 <div id="SkeleButtons" style="padding-top: 5px">
-                    <button id="warriorButton" style="height: 100px;width: 100px;font-size: 15px;padding: 5px;" class="button">Train Warrior</button>
-                    <button id="alchemistButton" style="height: 100px;width: 100px;font-size: 15px;padding: 5px;" class="button">Train Alchemist</button>
-                    <button id="workerButton" style="height: 100px;width: 100px;font-size: 15px;" class="button">Train Worker</button>
+                    <button id="warriorButton" class="button">Train Warrior</button>
+                    <button id="alchemistButton" class="button">Train Alchemist</button>
+                    <button id="workerButton" class="button">Train Worker</button>
                     <br>
                     <p id="SkeleAssign" style="color: #ffffff;"></p>
                 </div>    
@@ -31,7 +33,7 @@
           
         <div id="Upgrades" class="tabcontent">
             <div id = "upgrades">
-                <p>UPGRADES:</p>
+                <p style="color: #ffffff">UPGRADES:</p>
                 <div id=milk>
                 <button id="Bmilk" title="Doubles the amount of bones per click." class="button">Buy Milk: 100 bones</button>
                 </div>
@@ -42,7 +44,6 @@
                 <button id="Bweapons" title="Makes warriors deal more damage" class="button">Buy Weapons: 100 bones<span style="color: red;"> Need 10 Alchemists!</span></button>
                 </div>
             </div>
-            
         </div>
           
         <div id="Map" class="tabcontent">
@@ -59,12 +60,9 @@
             
         </div>
         
-        
-
         <div id="status">
         </div>
    
-
         <script src="main.js"></script>
         <script>
             function openCity(evt, cityName) {
