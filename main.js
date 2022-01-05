@@ -29,7 +29,7 @@ if (document.getElementById('clicker')){
         count += clickAmount;
         counter.innerHTML = "Bones: " + count;
         fartus.innerHTML = "";
-        BoneImage.style.resize = "width:90 height:90";
+        BoneImage.style.resize = "50px;"; //"width: 50px;height: 50px";
         
     }
 }

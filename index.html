@@ -8,24 +8,24 @@
         <link rel="stylesheet" href="style.css">
         <img src = "images/BoneTitle.png" alt="Bone Idle" class="center" width ="200" height ="40">
     </head>
-    <body>
+    <body style="background-color: #343434;">
         <div class="tab">
             <button class="tablinks" onclick="openCity(event, 'Production')">Production</button>
             <button class="tablinks" onclick="openCity(event, 'Upgrades')">Upgrades</button>
             <button class="tablinks" onclick="openCity(event, 'Map')">Map</button>
           </div>
-        <div id="bones">
+        <div id="bones" style="color: #ffffff;">
         </div>
         <div id="Production" class="tabcontent">
             <img id="clicker" src = "images/Bone.png" alt="buttonpress"/>
             <br>
-            <button id="skeletons" style="height: 100px;width: 100px;font-size: 15px;padding-bottom: 5px;">Buy Skeleton: 206</button>
+            <button id="skeletons" style="height: 100px;width: 100px;font-size: 15px;padding-bottom: 5px;" class="button">Buy Skeleton: 206</button>
                 <div id="SkeleButtons" style="padding-top: 5px">
-                    <button id="warriorButton" style="height: 100px;width: 100px;font-size: 15px;padding: 5px;">Train Warrior</button>
-                    <button id="alchemistButton" style="height: 100px;width: 100px;font-size: 15px;padding: 5px;">Train Alchemist</button>
-                    <button id="workerButton" style="height: 100px;width: 100px;font-size: 15px;">Train Worker</button>
+                    <button id="warriorButton" style="height: 100px;width: 100px;font-size: 15px;padding: 5px;" class="button">Train Warrior</button>
+                    <button id="alchemistButton" style="height: 100px;width: 100px;font-size: 15px;padding: 5px;" class="button">Train Alchemist</button>
+                    <button id="workerButton" style="height: 100px;width: 100px;font-size: 15px;" class="button">Train Worker</button>
                     <br>
-                    <p id="SkeleAssign"></p>
+                    <p id="SkeleAssign" style="color: #ffffff;"></p>
                 </div>    
         </div>
           
@@ -33,13 +33,13 @@
             <div id = "upgrades">
                 <p>UPGRADES:</p>
                 <div id=milk>
-                <button id="Bmilk" title="Doubles the amount of bones per click.">Buy Milk: 100 bones</button>
+                <button id="Bmilk" title="Doubles the amount of bones per click." class="button">Buy Milk: 100 bones</button>
                 </div>
                 <div id="tools">
-                <button id="Btools" title="Doubles prodution of worker skeletons">Buy Tools: 100 bones<span style="color: red;"> Need 10 Alchemists!</span></button>
+                <button id="Btools" title="Doubles prodution of worker skeletons" class="button">Buy Tools: 100 bones<span style="color: red;"> Need 10 Alchemists!</span></button>
                 </div>
                 <div id = "weapons">
-                <button id="Bweapons" title="Makes warriors deal more damage">Buy Weapons: 100 bones<span style="color: red;"> Need 10 Alchemists!</span></button>
+                <button id="Bweapons" title="Makes warriors deal more damage" class="button">Buy Weapons: 100 bones<span style="color: red;"> Need 10 Alchemists!</span></button>
                 </div>
             </div>
             
