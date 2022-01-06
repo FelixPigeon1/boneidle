@@ -5,6 +5,7 @@ let Warriors
 let Workers
 let Alchemists
 let production_amt
+let saveTimer
 
 
 if (localStorage.getItem("save_data")) {
@@ -29,7 +30,7 @@ const SkeleJobs = document.getElementById('SkeleButtons');
 const SkeleCount = document.getElementById('SkeleAssign');
 const cps = setInterval(production, 1000);
 const totalUpdate = setInterval(totalCounter, 10);
-const autoSave = setInterval(saveData, 300000)
+const autoSave = setInterval(saveData, saveTimer)
 
 
 
@@ -164,7 +165,28 @@ if (document.getElementById('exportBtn')){
 }
 if (document.getElementById('wipeBtn')){
     document.getElementById('wipeBtn').onclick = function() {
-        wipeData();
+        let confirm = window.confirm("THIS CANNOT BE UNDONE, CONTINUNE?")
+        if (confirm = true)
+        {
+            wipeData();
+        }
+        
+    }
+}
+
+if (document.getElementById('autoBtn')){
+    document.getElementById('autoBtn').onclick = function() {
+        let option = document.getElementById("autosave")
+        let save_option = option.value
+        if (saveTimer > 0)
+        {
+            saveTimer = save_option * 60000
+        }
+        else
+        {
+            saveTimer = 99999999999999999999
+        }
+        
     }
 }
 
@@ -196,6 +218,7 @@ function saveData() {
     localStorage.setItem("skeleton",skeleton)
     localStorage.setItem("production_amt",production_amt)
     localStorage.setItem("click_amt",clickAmount)
+    localStorage.setItem("saveTimer",saveTimer)
 }
 
 function loadData() {
@@ -206,12 +229,14 @@ function loadData() {
     Alchemists = Number(localStorage.getItem("alchemists"))
     Workers = Number(localStorage.getItem("workers"))
     clickAmount = Number(localStorage.getItem("click_amt"))
+    saveTimer = Number(localStorage.getItem("saveTimer"))
 }
 
 function exportData() {
     console.log(localStorage.getItem("skeleton"))
     console.log(localStorage.getItem("bone_count"))
     console.log(localStorage.getItem("skeletonAssign"))
+    console.log(localStorage.getItem("saveTimer"))
     }
 
 function wipeData () {

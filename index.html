@@ -10,15 +10,10 @@
     </head>
     <body style="background-color: #343434;">
         <div class="tab">
-            <button class="tablinks" onclick="openCity(event, 'Production')">Production</button>
-            <button class="tablinks" onclick="openCity(event, 'Upgrades')">Upgrades</button>
-            <button class="tablinks" onclick="openCity(event, 'Map')">Map</button>
-        </div>
-
-        <div id="saveButton">
-          <button id="saveBtn" title="Save">Save</button>
-          <button id="exportBtn" title="export">Export</button>
-          <button id="wipeBtn" title="wipe save" style="color: red;">WIPE SAVE</button>
+            <button class="tablinks" onclick="openTab(event, 'Production')">Production</button>
+            <button class="tablinks" onclick="openTab(event, 'Upgrades')">Upgrades</button>
+            <button class="tablinks" onclick="openTab(event, 'Map')">Map</button>
+            <button class="tablinks" onclick="openTab(event, 'Settings')">Settings</button>
         </div>
 
         <div id="bones" style="color: #ffffff;">
@@ -53,6 +48,27 @@
         </div>
 
         <div id="Map" class="tabcontent"> </div>
+
+        <div id="Settings" class="tabcontent">
+          <div id="saveButton">
+            <button id="saveBtn" title="Save">Save</button>
+            <br>
+            <button id="exportBtn" title="export">Export</button>
+            <br>
+            <button id="wipeBtn" title="wipe save" style="color: red;">WIPE SAVE</button>
+          </div>
+            <label for="autosave" style="color: white;">Autosave Timer:</label>
+            <select name="autosave" id="autosave">
+            <option value="0">No Autosave</option>
+            <option value="1">1 Minute</option>
+            <option value="5">5 Minutes</option>
+            <option value="10">10 Minutes</option>
+            <option value="15">15 Minutes</option>
+            <option value="30">30 Minutes</option>
+            <option value="30">60 Minutes</option>
+            <button id="autoBtn" title="saveselect">Confirm</button>
+        </select>
+        </div>
         
         
 
@@ -70,7 +86,7 @@
    
         <script src="main.js"></script>
         <script>
-            function openCity(evt, cityName) {
+            function openTab(evt, tabName) {
               var i, tabcontent, tablinks;
               tabcontent = document.getElementsByClassName("tabcontent");
               for (i = 0; i < tabcontent.length; i++) {
@@ -80,7 +96,7 @@
               for (i = 0; i < tablinks.length; i++) {
                 tablinks[i].className = tablinks[i].className.replace(" active", "");
               }
-              document.getElementById(cityName).style.display = "block";
+              document.getElementById(tabName).style.display = "block";
               evt.currentTarget.className += " active";
             }
             </script>
