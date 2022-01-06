@@ -1,17 +1,37 @@
-let count = 306;
-let clickAmount = 1;
-let skeleton = [1, 206];
-let skeletonAssign = [0,8,0];
-let production_amt = 0.25;
+let bone_count
+let clickAmount
+let skeleton
+let Warriors
+let Workers
+let Alchemists
+let production_amt
+
+
+if (localStorage.getItem("save_data")) {
+    loadData();
+}
+else {
+    bone_count = 306;
+    clickAmount = 1;
+    skeleton = 1;
+    Warriors = 0
+    Workers = 0
+    Alchemists = 8
+    production_amt = 0.25;
+}
+
+const skeletonCost = 206;
 const counter = document.getElementById('bones');
 const fartus = document.getElementById('status');
 const Upgrades = document.getElementById('upgrades');
 const SkeletonCost = document.getElementById('skeletons');
 const SkeleJobs = document.getElementById('SkeleButtons');
 const SkeleCount = document.getElementById('SkeleAssign');
-const BoneImage = document.getElementById('clicker')
 const cps = setInterval(production, 1000);
 const totalUpdate = setInterval(totalCounter, 10);
+const autoSave = setInterval(saveData, 300000)
+
+
 
 ///////////
 //BUTTONS//
@@ -26,28 +46,27 @@ if (document.getElementById('SkeleButtons')){
 //clicker function, increased bone count every time the bone is clicked 
 if (document.getElementById('clicker')){
     document.getElementById('clicker').onclick = function() {
-        count += clickAmount;
-        counter.innerHTML = "Bones: " + count;
+        bone_count += clickAmount;
+        counter.innerHTML = "Bones: " + bone_count;
         fartus.innerHTML = "";
-        BoneImage.style.resize = "50px;"; //"width: 50px;height: 50px";
         
     }
 }
 
 if (document.getElementById('warriorButton')){
     document.getElementById('warriorButton').onclick = function() {
-        if (skeleton[0] >= 1) {
-            skeleton[0]--;
-            skeletonAssign[0]++;
+        if (skeleton >= 1) {
+            skeleton--;
+            Warriors++;
         }
     }
 }
 
 if (document.getElementById('alchemistButton')){
     document.getElementById('alchemistButton').onclick = function() {
-        if (skeleton[0] >= 1) {
-            skeleton[0]--;
-            skeletonAssign[1]++;
+        if (skeleton >= 1) {
+            skeleton--;
+            Alchemists++;
             Upgrades.style.display = "block";
         }
     }
@@ -55,9 +74,9 @@ if (document.getElementById('alchemistButton')){
 
 if (document.getElementById('workerButton')){
     document.getElementById('workerButton').onclick = function() {
-        if (skeleton[0] >= 1) {
-            skeleton[0]--;
-            skeletonAssign[2]++;
+        if (skeleton >= 1) {
+            skeleton--;
+            Workers++;
         }
     }
 }
@@ -68,10 +87,10 @@ if (document.getElementById('workerButton')){
 
 if (document.getElementById('skeletons')){
     document.getElementById('skeletons').onclick = function() {
-        if (count >= skeleton[1]){
-        count -= skeleton[1];
-        skeleton[0]++;
-        SkeletonCost.innerHTML = "Buy Skeleton: " + skeleton[1];
+        if (bone_count >= skeletonCost){
+        bone_count -= skeletonCost;
+        skeleton++;
+        SkeletonCost.innerHTML = "Buy Skeleton: " + skeletonCost;
         SkeleJobs.style.display = "block";
         }
         else {
@@ -82,8 +101,8 @@ if (document.getElementById('skeletons')){
 
 if (document.getElementById('milk')){
     document.getElementById('Bmilk').onclick = function() {
-        if (count >= 100){
-            count -= 100;
+        if (bone_count >= 100){
+            bone_count -= 100;
             clickAmount *= 2;
             const milkbutton = document.getElementById('milk')
             milkbutton.style.display = "none"
@@ -97,14 +116,14 @@ if (document.getElementById('milk')){
 
 if (document.getElementById('tools')){
     document.getElementById('Btools').onclick = function() {
-        if (count >= 100 && skeletonAssign[1] >= 10) {
-            count -= 100;
+        if (bone_count >= 100 && Alchemists >= 10) {
+            bone_count-= 100;
             production_amt *= 2;
             const toolsbutton = document.getElementById('tools')
             toolsbutton.remove()
             
         }
-        else if (skeletonAssign[1] < 10) {
+        else if (Alchemists < 10) {
             fartus.innerHTML = "Not Enough Alchemists!";
 
         }
@@ -116,14 +135,14 @@ if (document.getElementById('tools')){
 
 if (document.getElementById('weapons')){
     document.getElementById('Bweapons').onclick = function() {
-        if (count >= 100 && skeletonAssign[1] >= 10) {
-            count -= 100;
+        if (bone_count >= 100 && Alchemists >= 10) {
+            bone_count -= 100;
             production_amt *= 2;
             const weaponsbutton = document.getElementById('weapons')
             weaponsbutton.remove()
             
         }
-        else if (skeletonAssign[1] < 10) {
+        else if (Alchemists < 10) {
             fartus.innerHTML = "Not Enough Alchemists!";
 
         }
@@ -133,24 +152,71 @@ if (document.getElementById('weapons')){
     }
 }
 
+if (document.getElementById('saveBtn')){
+    document.getElementById('saveBtn').onclick = function() {
+        saveData();
+    }
+}
+if (document.getElementById('exportBtn')){
+    document.getElementById('exportBtn').onclick = function() {
+        exportData();
+    }
+}
+if (document.getElementById('wipeBtn')){
+    document.getElementById('wipeBtn').onclick = function() {
+        wipeData();
+    }
+}
+
 //////////////////////////
 //PRODUCTION AND COUNTER//
 //////////////////////////
 
 function production() {
-    count += skeletonAssign[2] * production_amt;
+    bone_count += Workers * production_amt;
 
 }
 
 function totalCounter() {
-    counter.innerHTML = "Bones: " + count + " Skeletons: " + skeleton[0];
-    SkeleCount.innerHTML = "Warriors: " + skeletonAssign[0] + " Alchemists: " + skeletonAssign[1] + " Workers: " + skeletonAssign[2];
-    if (skeletonAssign[1] >= 10) {
+    counter.innerHTML = "Bones: " + bone_count + " Skeletons: " + skeleton;
+    SkeleCount.innerHTML = "Warriors: " + Warriors + " Alchemists: " + Alchemists + " Workers: " + Workers;
+    if (Alchemists >= 10) {
         document.getElementById("Btools").innerHTML = "Buy Tools: 100 bones";
+        
         document.getElementById("Bweapons").innerHTML = "Buy Weapons: 100 bones"
     }
 }
 
-function boneAnim () {
-a
+function saveData() {
+    localStorage.setItem("save_data",true);
+    localStorage.setItem("bone_count",bone_count)
+    localStorage.setItem("warriors",Warriors)
+    localStorage.setItem("alchemists",Alchemists)
+    localStorage.setItem("workers", Workers)
+    localStorage.setItem("skeleton",skeleton)
+    localStorage.setItem("production_amt",production_amt)
+    localStorage.setItem("click_amt",clickAmount)
+}
+
+function loadData() {
+    bone_count = Number(localStorage.getItem("bone_count"))
+    skeleton = Number(localStorage.getItem("skeleton"))
+    production_amt = Number(localStorage.getItem("production_amt"))
+    Warriors = Number(localStorage.getItem("warriors"))
+    Alchemists = Number(localStorage.getItem("alchemists"))
+    Workers = Number(localStorage.getItem("workers"))
+    clickAmount = Number(localStorage.getItem("click_amt"))
+}
+
+function exportData() {
+    console.log(localStorage.getItem("skeleton"))
+    console.log(localStorage.getItem("bone_count"))
+    console.log(localStorage.getItem("skeletonAssign"))
+    }
+
+function wipeData () {
+    localStorage.removeItem("save_data")
+    localStorage.removeItem("bone_count",)
+    localStorage.removeItem("skeletonAssign")
+    localStorage.removeItem("skeleton")
 }
