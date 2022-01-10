@@ -12,13 +12,14 @@ if (localStorage.getItem("save_data")) {
     loadData();
 }
 else {
-    bone_count = 306;
+    bone_count = 0;
     clickAmount = 1;
-    skeleton = 1;
+    skeleton = 0;
     Warriors = 0
     Workers = 0
-    Alchemists = 8
+    Alchemists = 0
     production_amt = 0.25;
+    saveTimer = 600000
 }
 
 const skeletonCost = 206;
@@ -37,12 +38,6 @@ const autoSave = setInterval(saveData, saveTimer)
 ///////////
 //BUTTONS//
 /////////// 
-
-//hides upgrade buttons on page start
-if (document.getElementById('SkeleButtons')){
-    SkeleJobs.style.display = "none";
-    Upgrades.style.display = "none";
-}
 
 //clicker function, increased bone count every time the bone is clicked 
 if (document.getElementById('clicker')){
@@ -117,7 +112,7 @@ if (document.getElementById('milk')){
 
 if (document.getElementById('tools')){
     document.getElementById('Btools').onclick = function() {
-        if (bone_count >= 100 && Alchemists >= 10) {
+        if (bone_count >= 100 && Alchemists >= 1) {
             bone_count-= 100;
             production_amt *= 2;
             const toolsbutton = document.getElementById('tools')
@@ -136,7 +131,7 @@ if (document.getElementById('tools')){
 
 if (document.getElementById('weapons')){
     document.getElementById('Bweapons').onclick = function() {
-        if (bone_count >= 100 && Alchemists >= 10) {
+        if (bone_count >= 100 && Alchemists >= 1) {
             bone_count -= 100;
             production_amt *= 2;
             const weaponsbutton = document.getElementById('weapons')
@@ -235,13 +230,18 @@ function loadData() {
 function exportData() {
     console.log(localStorage.getItem("skeleton"))
     console.log(localStorage.getItem("bone_count"))
-    console.log(localStorage.getItem("skeletonAssign"))
+    console.log(localStorage.getItem("workers"))
+    console.log(localStorage.getItem("alchemists"))
+    console.log(localStorage.getItem("warriors"))
     console.log(localStorage.getItem("saveTimer"))
     }
 
 function wipeData () {
     localStorage.removeItem("save_data")
-    localStorage.removeItem("bone_count",)
-    localStorage.removeItem("skeletonAssign")
+    localStorage.removeItem("bone_count")
+    localStorage.removeItem("workers")
+    localStorage.removeItem("alchemists")
+    localStorage.removeItem("warriors")
     localStorage.removeItem("skeleton")
+    localStorage.removeItem("saveTimer")
 }
