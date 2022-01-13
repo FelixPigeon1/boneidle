@@ -112,14 +112,14 @@ if (document.getElementById('milk')){
 
 if (document.getElementById('tools')){
     document.getElementById('Btools').onclick = function() {
-        if (bone_count >= 100 && Alchemists >= 1) {
-            bone_count-= 100;
+        if (bone_count >= 50 && Alchemists >= 1) {
+            bone_count-= 50;
             production_amt *= 2;
             const toolsbutton = document.getElementById('tools')
             toolsbutton.remove()
             
         }
-        else if (Alchemists < 10) {
+        else if (Alchemists <= 1) {
             fartus.innerHTML = "Not Enough Alchemists!";
 
         }
@@ -131,14 +131,14 @@ if (document.getElementById('tools')){
 
 if (document.getElementById('weapons')){
     document.getElementById('Bweapons').onclick = function() {
-        if (bone_count >= 100 && Alchemists >= 1) {
-            bone_count -= 100;
+        if (bone_count >= 50 && Alchemists >= 1) {
+            bone_count -= 50;
             production_amt *= 2;
             const weaponsbutton = document.getElementById('weapons')
             weaponsbutton.remove()
             
         }
-        else if (Alchemists < 10) {
+        else if (Alchemists <= 1) {
             fartus.innerHTML = "Not Enough Alchemists!";
 
         }
@@ -173,7 +173,7 @@ if (document.getElementById('autoBtn')){
     document.getElementById('autoBtn').onclick = function() {
         let option = document.getElementById("autosave")
         let save_option = option.value
-        if (saveTimer > 0)
+        if (save_option > 0)
         {
             saveTimer = save_option * 60000
         }
@@ -205,6 +205,7 @@ function totalCounter() {
 }
 
 function saveData() {
+    console.log("saving... ");
     localStorage.setItem("save_data",true);
     localStorage.setItem("bone_count",bone_count)
     localStorage.setItem("warriors",Warriors)
@@ -214,6 +215,7 @@ function saveData() {
     localStorage.setItem("production_amt",production_amt)
     localStorage.setItem("click_amt",clickAmount)
     localStorage.setItem("saveTimer",saveTimer)
+    console.log("Done.")
 }
 
 function loadData() {

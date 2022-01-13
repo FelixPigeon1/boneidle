@@ -38,13 +38,13 @@
             <div id = "upgrades">
                 <p style="color: #ffffff">UPGRADES:</p>
                 <div id=milk>
-                <button id="Bmilk" title="Doubles the amount of bones per click." class="button">Buy Milk: 100 bones</button>
+                <button id="Bmilk" title="Doubles the amount of bones per click." class="button">Buy Milk: 50 bones</button>
                 </div>
                 <div id="tools">
-                <button id="Btools" title="Doubles prodution of worker skeletons" class="button">Buy Tools: 100 bones<span style="color: red;"> Need 1 Alchemist!</span></button>
+                <button id="Btools" title="Doubles prodution of worker skeletons" class="button">Buy Tools: 50 bones<span style="color: red;"> Need 1 Alchemist!</span></button>
                 </div>
                 <div id = "weapons">
-                <button id="Bweapons" title="Makes warriors deal more damage" class="button">Buy Weapons: 100 bones<span style="color: red;"> Need 1 Alchemist!</span></button>
+                <button id="Bweapons" title="Makes warriors deal more damage" class="button">Buy Weapons: 75 bones<span style="color: red;"> Need 1 Alchemist!</span></button>
                 </div>
             </div>
         </div>
@@ -54,16 +54,12 @@
         <!--SETTINGS-->
         <div id="Settings" class="tabcontent">
           <div id="saveButton">
-            <button id="saveBtn" title="Save">Save</button>
+            <button id="saveBtn" title="Save">Save</button> <button id="wipeBtn" title="wipe save" style="color: red;padding-right: 3px;">WIPE SAVE</button>
             <br>
-            <button id="exportBtn" title="export">Export</button>
-            <br>
-            <button id="wipeBtn" title="wipe save" style="color: red;">WIPE SAVE</button>
-            <br>
-            <button id="autoBtn" title="saveselect">Confirm</button>
+            <!--<button id="exportBtn" title="export">Export</button>-->
           </div>
           <div id="autpsavechoice">
-            <label for="autosave" style="color: white;">Autosave Timer:</label>
+              <label for="autosave" style="color: white;">Autosave Timer:</label>
               <select name="autosave" id="autosave">
               <option value="0">No Autosave</option>
               <option value="1">1 Minute</option>
@@ -72,9 +68,11 @@
               <option value="15">15 Minutes</option>
               <option value="30">30 Minutes</option>
               <option value="30">60 Minutes</option>
+              </select>
+              <button id="autoBtn" title="saveselect">Confirm</button>
           </div>
           <div id="nownfwoefn">
-          <button id="autoBtn" title="saveselect">Confirm</button>
+          
           </div>
         </div>
         
