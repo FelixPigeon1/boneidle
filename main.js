@@ -45,6 +45,7 @@ if (document.getElementById('clicker')){
         bone_count += clickAmount;
         counter.innerHTML = "Bones: " + bone_count;
         fartus.innerHTML = "";
+        document.getElementById("clicker").src = "images/Bonesmalll.png"
         
     }
 }
@@ -97,8 +98,8 @@ if (document.getElementById('skeletons')){
 
 if (document.getElementById('milk')){
     document.getElementById('Bmilk').onclick = function() {
-        if (bone_count >= 100){
-            bone_count -= 100;
+        if (bone_count >= 50){
+            bone_count -= 50;
             clickAmount *= 2;
             const milkbutton = document.getElementById('milk')
             milkbutton.style.display = "none"
@@ -194,10 +195,15 @@ function production() {
 
 }
 
+setInterval(boneimagereset, 180)
+function boneimagereset () {
+    document.getElementById("clicker").src = "images/Bone.png"
+}
+
 function totalCounter() {
     counter.innerHTML = "Bones: " + bone_count + " Skeletons: " + skeleton;
     SkeleCount.innerHTML = "Warriors: " + Warriors + " Alchemists: " + Alchemists + " Workers: " + Workers;
-    if (Alchemists >= 10) {
+    if (Alchemists >= 1) {
         document.getElementById("Btools").innerHTML = "Buy Tools: 100 bones";
         
         document.getElementById("Bweapons").innerHTML = "Buy Weapons: 100 bones"

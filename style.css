@@ -27,10 +27,6 @@ button:disabled {
     font-size: 15px;
     color: #ffffff;
 }
-.boneclicker:active {
-    width: 120px;
-    height: 120px;
-}
     /* Style the tab */
 .tab {
 overflow: hidden;
