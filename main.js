@@ -1,24 +1,19 @@
-let bone_count
-let clickAmount
-let skeleton
-let Warriors
-let Workers
-let Alchemists
-let production_amt
 let saveTimer
+let production = {click: 1, work: 1};
+let count = {workers: 0, alchemists: 0, warriors: 0, skeletons: 0, bones: 0};
 
-
+//Dectects if a save exsists, if not, sets all values to default. 
 if (localStorage.getItem("save_data")) {
     loadData();
 }
 else {
-    bone_count = 0;
-    clickAmount = 1;
-    skeleton = 0;
-    Warriors = 0
-    Workers = 0
-    Alchemists = 0
-    production_amt = 0.25;
+    count.bones = 0
+    production.click = 1
+    count.skeletons = 0
+    count.warriors = 0
+    count.workers = 0
+    count.alchemists = 0
+    production.work = 1
     saveTimer = 600000
 }
 
@@ -29,7 +24,7 @@ const Upgrades = document.getElementById('upgrades');
 const SkeletonCost = document.getElementById('skeletons');
 const SkeleJobs = document.getElementById('SkeleButtons');
 const SkeleCount = document.getElementById('SkeleAssign');
-const cps = setInterval(production, 1000);
+const cps = setInterval(bps, 1000);
 const totalUpdate = setInterval(totalCounter, 10);
 const autoSave = setInterval(saveData, saveTimer)
 
@@ -42,9 +37,11 @@ const autoSave = setInterval(saveData, saveTimer)
 //clicker function, increased bone count every time the bone is clicked 
 if (document.getElementById('clicker')){
     document.getElementById('clicker').onclick = function() {
-        bone_count += clickAmount;
-        counter.innerHTML = "Bones: " + bone_count;
+        count.bones += production.click;
+        counter.innerHTML = "Bones: " + count.bones;
         fartus.innerHTML = "";
+
+        btnCreate("test", 1, 0, "click", 5)
         document.getElementById("clicker").src = "images/Bonesmalll.png"
         
     }
@@ -52,18 +49,18 @@ if (document.getElementById('clicker')){
 
 if (document.getElementById('warriorButton')){
     document.getElementById('warriorButton').onclick = function() {
-        if (skeleton >= 1) {
-            skeleton--;
-            Warriors++;
+        if (count.skeletons >= 1) {
+            count.skeletons--;
+            count.warriors++;
         }
     }
 }
 
 if (document.getElementById('alchemistButton')){
     document.getElementById('alchemistButton').onclick = function() {
-        if (skeleton >= 1) {
-            skeleton--;
-            Alchemists++;
+        if (count.skeletons >= 1) {
+            count.skeletons--;
+            count.alchemists++;
             Upgrades.style.display = "block";
         }
     }
@@ -71,9 +68,9 @@ if (document.getElementById('alchemistButton')){
 
 if (document.getElementById('workerButton')){
     document.getElementById('workerButton').onclick = function() {
-        if (skeleton >= 1) {
-            skeleton--;
-            Workers++;
+        if (count.skeletons >= 1) {
+            count.skeletons--;
+            count.workers++;
         }
     }
 }
@@ -84,9 +81,9 @@ if (document.getElementById('workerButton')){
 
 if (document.getElementById('skeletons')){
     document.getElementById('skeletons').onclick = function() {
-        if (bone_count >= skeletonCost){
-        bone_count -= skeletonCost;
-        skeleton++;
+        if (count.bones>= skeletonCost){
+        count.bones -= skeletonCost;
+        count.skeletons++;
         SkeletonCost.innerHTML = "Buy Skeleton: " + skeletonCost;
         SkeleJobs.style.display = "block";
         }
@@ -98,9 +95,9 @@ if (document.getElementById('skeletons')){
 
 if (document.getElementById('milk')){
     document.getElementById('Bmilk').onclick = function() {
-        if (bone_count >= 50){
-            bone_count -= 50;
-            clickAmount *= 2;
+        if (count.bones >= 50){
+            count.bones -= 50;
+            production.click *= 2;
             const milkbutton = document.getElementById('milk')
             milkbutton.style.display = "none"
 
@@ -113,9 +110,9 @@ if (document.getElementById('milk')){
 
 if (document.getElementById('tools')){
     document.getElementById('Btools').onclick = function() {
-        if (bone_count >= 50 && Alchemists >= 1) {
-            bone_count-= 50;
-            production_amt *= 2;
+        if (count.bones >= 50 && Alchemists >= 1) {
+            count.bones-= 50;
+            production.work *= 2;
             const toolsbutton = document.getElementById('tools')
             toolsbutton.remove()
             
@@ -132,9 +129,9 @@ if (document.getElementById('tools')){
 
 if (document.getElementById('weapons')){
     document.getElementById('Bweapons').onclick = function() {
-        if (bone_count >= 50 && Alchemists >= 1) {
-            bone_count -= 50;
-            production_amt *= 2;
+        if (count.bones >= 50 && Alchemists >= 1) {
+            count.bones -= 50;
+            production.work *= 2;
             const weaponsbutton = document.getElementById('weapons')
             weaponsbutton.remove()
             
@@ -162,7 +159,7 @@ if (document.getElementById('exportBtn')){
 if (document.getElementById('wipeBtn')){
     document.getElementById('wipeBtn').onclick = function() {
         let confirm = window.confirm("THIS CANNOT BE UNDONE, CONTINUNE?")
-        if (confirm = true)
+        if (confirm)
         {
             wipeData();
         }
@@ -190,7 +187,18 @@ if (document.getElementById('autoBtn')){
 //PRODUCTION AND COUNTER//
 //////////////////////////
 
-function production() {
+function btnCreate(name, cost, alch_req, target, up_amt) {
+    let btn = document.createElement("BUTTON");
+    btn.onclick = function() {
+        target *= (up_amt)
+    }
+    btn.setAttribute('button')
+    btn.append("Buy" + name +": " + cost + "bones")
+    if (Alchemists >= alch_req) {
+        btn.append("Need " + alch_req + "alchemists!")
+    }
+}
+function bps() {
     bone_count += Workers * production_amt;
 
 }
@@ -213,25 +221,17 @@ function totalCounter() {
 function saveData() {
     console.log("saving... ");
     localStorage.setItem("save_data",true);
-    localStorage.setItem("bone_count",bone_count)
-    localStorage.setItem("warriors",Warriors)
-    localStorage.setItem("alchemists",Alchemists)
-    localStorage.setItem("workers", Workers)
-    localStorage.setItem("skeleton",skeleton)
-    localStorage.setItem("production_amt",production_amt)
-    localStorage.setItem("click_amt",clickAmount)
+    localStorage.setItem("count", JSON.stringify(count))
+    localStorage.setItem("production", JSON.stringify(production))
     localStorage.setItem("saveTimer",saveTimer)
     console.log("Done.")
 }
 
 function loadData() {
-    bone_count = Number(localStorage.getItem("bone_count"))
-    skeleton = Number(localStorage.getItem("skeleton"))
-    production_amt = Number(localStorage.getItem("production_amt"))
-    Warriors = Number(localStorage.getItem("warriors"))
-    Alchemists = Number(localStorage.getItem("alchemists"))
-    Workers = Number(localStorage.getItem("workers"))
-    clickAmount = Number(localStorage.getItem("click_amt"))
+    let save = localStorage.getItem('count')
+    count = JSON.parse('save')
+    save = localStorage.getItem('production')
+    production = JSON.parse('save')
     saveTimer = Number(localStorage.getItem("saveTimer"))
 }
 
@@ -252,4 +252,5 @@ function wipeData () {
     localStorage.removeItem("warriors")
     localStorage.removeItem("skeleton")
     localStorage.removeItem("saveTimer")
+    location.reload()
 }
