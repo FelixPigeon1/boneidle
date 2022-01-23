@@ -7,12 +7,12 @@ if (localStorage.getItem("save_data")) {
 }
 
 const containers = {
-    boneStatus: document.getElementById('bones'),
-    alert: document.getElementById('alert'),
-    upgrades: document.getElementById('upgrades'),
-    skeletonBuy: document.getElementById('skeletonPurchase'),
-    skeletonsJobs: document.getElementById('skeletonJobs'),
-    skeletonDemographic: document.getElementById('skeletonDemographic')
+    boneStatus: document.getElementById("bones"),
+    alert: document.getElementById("alert"),
+    upgrades: document.getElementById("upgrades"),
+    skeletonBuy: document.getElementById("skeletonPurchase"),
+    skeletonsJobs: document.getElementById("skeletonJobs"),
+    skeletonDemographic: document.getElementById("skeletonDemographic")
 }
 
 setInterval(bps, 1000)
@@ -28,9 +28,9 @@ function totalCounter() {
     containers.boneStatus.innerHTML = "Bones: " + count.bones + " Skeletons: " + count.skeletons
     containers.skeletonDemographic.innerHTML = "Warriors: " + count.warriors + " Alchemists: " + count.alchemists + " Workers: " + count.workers
     if (count.alchemists >= 1) {
-        document.getElementById("Btools").innerHTML = "Buy Tools: 100 bones"
+        document.getElementById("tools").innerHTML = "Buy Tools: 100 bones"
         
-        document.getElementById("Bweapons").innerHTML = "Buy Weapons: 100 bones"
+        document.getElementById("weapons").innerHTML = "Buy Weapons: 100 bones"
     }
 }
 
@@ -41,8 +41,8 @@ function saveData() {
 }
 
 function loadData() {
-    count = JSON.parse(localStorage.getItem('count'))
-    production = JSON.parse(localStorage.getItem('production'))
+    count = JSON.parse(localStorage.getItem("count"))
+    production = JSON.parse(localStorage.getItem("production"))
 }
 
 function wipeData () {

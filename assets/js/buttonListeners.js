@@ -2,7 +2,7 @@
 // PURCHASES //
 ///////////////
 
-document.getElementById('clicker').onclick = function() {
+document.getElementById("clicker").onclick = function() {
     count.bones += production.click
     containers.boneStatus.innerHTML = "Bones: " + count.bones + " Skeletons: " + count.skeletons
     containers.alert.innerHTML = ""
@@ -10,14 +10,14 @@ document.getElementById('clicker').onclick = function() {
     document.getElementById("clicker").src = "assets/images/boneSmall.png"
 }
 
-document.getElementById('warriorBuy').onclick = function() {
+document.getElementById("warriorBuy").onclick = function() {
     if (count.skeletons >= 1) {
         count.skeletons--
         count.warriors++
     }
 }
 
-document.getElementById('alchemistBuy').onclick = function() {
+document.getElementById("alchemistBuy").onclick = function() {
     if (count.skeletons >= 1) {
         count.skeletons--
         count.alchemists++
@@ -25,7 +25,7 @@ document.getElementById('alchemistBuy').onclick = function() {
     }
 }
 
-document.getElementById('workerBuy').onclick = function() {
+document.getElementById("workerBuy").onclick = function() {
     if (count.skeletons >= 1) {
         count.skeletons--
         count.workers++
@@ -36,7 +36,7 @@ document.getElementById('workerBuy').onclick = function() {
 // UPGRADES //
 //////////////
 
-document.getElementById('skeletonPurchase').onclick = function() {
+document.getElementById("skeletonPurchase").onclick = function() {
     if (count.bones >= 206){
         count.bones -= 206
         count.skeletons++
@@ -47,11 +47,11 @@ document.getElementById('skeletonPurchase').onclick = function() {
     }
 }
 
-document.getElementById('milk').onclick = function() {
+document.getElementById("milk").onclick = function() {
     if (count.bones >= 50){
         count.bones -= 50
         production.click *= 2
-        const milkbutton = document.getElementById('milk')
+        const milkbutton = document.getElementById("milk")
         milkbutton.style.display = "none"
 
     }
@@ -60,11 +60,11 @@ document.getElementById('milk').onclick = function() {
     }
 }
 
-document.getElementById('tools').onclick = function() {
+document.getElementById("tools").onclick = function() {
     if (count.bones >= 50 && count.alchemists >= 1) {
         count.bones-= 50
         production.work *= 2
-        const toolsbutton = document.getElementById('tools')
+        const toolsbutton = document.getElementById("tools")
         toolsbutton.style.display = "none"
         
     }
@@ -77,11 +77,11 @@ document.getElementById('tools').onclick = function() {
     }
 }
 
-document.getElementById('weapons').onclick = function() {
+document.getElementById("weapons").onclick = function() {
     if (count.bones >= 50 && count.alchemists >= 1) {
         count.bones -= 50
         production.work *= 2
-        const weaponsbutton = document.getElementById('weapons')
+        const weaponsbutton = document.getElementById("weapons")
         weaponsbutton.style.display = "none"
     }
     else if (count.alchemists <= 1) {
@@ -93,7 +93,7 @@ document.getElementById('weapons').onclick = function() {
     }
 }
 
-document.getElementById('wipeBtn').onclick = function() {
+document.getElementById("wipeBtn").onclick = function() {
     let confirm = window.confirm("THIS CANNOT BE UNDONE, CONTINUNE?")
     if (confirm)
     {
