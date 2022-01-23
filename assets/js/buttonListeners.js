@@ -47,7 +47,7 @@ document.getElementById('skeletonPurchase').onclick = function() {
     }
 }
 
-document.getElementById('Bmilk').onclick = function() {
+document.getElementById('milk').onclick = function() {
     if (count.bones >= 50){
         count.bones -= 50
         production.click *= 2
@@ -60,13 +60,12 @@ document.getElementById('Bmilk').onclick = function() {
     }
 }
 
-document.getElementById('Btools').onclick = function() {
+document.getElementById('tools').onclick = function() {
     if (count.bones >= 50 && count.alchemists >= 1) {
         count.bones-= 50
         production.work *= 2
         const toolsbutton = document.getElementById('tools')
         toolsbutton.style.display = "none"
-        //toolsbutton.remove()
         
     }
     else if (count.alchemists <= 1) {
@@ -78,7 +77,7 @@ document.getElementById('Btools').onclick = function() {
     }
 }
 
-document.getElementById('Bweapons').onclick = function() {
+document.getElementById('weapons').onclick = function() {
     if (count.bones >= 50 && count.alchemists >= 1) {
         count.bones -= 50
         production.work *= 2
