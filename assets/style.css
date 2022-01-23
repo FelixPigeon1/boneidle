@@ -1,0 +1,54 @@
+body {
+    color: white;
+    background-color: #343434;
+}
+
+#bones {
+    font-size: xx-large;
+    padding-top: 10px;
+}
+#buttons {
+    text-align: right;
+}
+#SkeleAssign {
+    font-size: x-large;
+    
+}
+
+.button {
+    background-color: #454545;
+    height: 100px;
+    width: 100px;
+    font-size: 15px;
+    color: #ffffff;
+}
+.tab {
+    overflow: hidden;
+    background-color: #343434;
+    color: #ffffff;
+}
+.tab button {
+    background-color: inherit;
+    float: center;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+    color: #ffffff;
+}
+.tab button:hover {
+    background-color: #454545;
+}
+.tab button.active {
+    background-color: #404040;
+    color:#ffffff;
+}
+
+
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border-top: none;
+}

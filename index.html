@@ -2,14 +2,14 @@
 <html>
     <head>
         <title>Bone Idle</title>
-        <link rel="icon" type="image/x-icon" href="Bone.ico">
         <meta charset = "UTF-8">
-        <meta name="viewport" content="width=device-width, inital-scale=1">
-        <link rel="stylesheet" href="style.css">
-        <img src = "images/BoneTitle.png" alt="Bone Idle" class="center" width ="200" height ="40">
-        <body onload="openTab(event, 'Production')"></body>
+        <meta name="viewport" content="width=device-width">
+        <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+        <link rel="stylesheet" href="assets/style.css">
     </head>
-    <body style="background-color: #343434;">
+    <body onload="openTab(event, 'Production')">
+        <img src = "assets/images/header.png" alt="Bone Idle" class="center" width ="200" height ="40">
+
         <div class="tab">
             <button class="tablinks" onclick="openTab(event, 'Production')">Production</button>
             <button class="tablinks" onclick="openTab(event, 'Upgrades')">Upgrades</button>
@@ -17,12 +17,13 @@
             <button class="tablinks" onclick="openTab(event, 'Settings')">Settings</button>
         </div>
 
-        <div id="bones" style="color: #ffffff;">
+        <div id="bones">
+          Bones: 0 Skeletons: 0
         </div>
 
         <!--PRODUCTION-->
         <div id="Production" class="tabcontent">
-            <img id="clicker" src = "images/Bone.png" alt="buttonpress" class="boneclicker"/>
+            <img id="clicker" src = "assets/images/bone.png" alt="buttonpress" class="boneclicker"/>
             <br>
             <button id="skeletons" class="button">Buy Skeleton: 206</button>
                 <div id="SkeleButtons" style="padding-top: 5px">
@@ -30,14 +31,14 @@
                     <button id="alchemistButton" class="button">Train Alchemist</button>
                     <button id="workerButton" class="button">Train Worker</button>
                     <br>
-                    <p id="SkeleAssign" style="color: #ffffff;"></p>
+                    <p id="SkeleAssign"></p>
                 </div>    
         </div>
         
         <!--UPGRADES-->
         <div id="Upgrades" class="tabcontent">
             <div id = "upgrades">
-                <p style="color: #ffffff">UPGRADES:</p>
+                <p>UPGRADES:</p>
                 <div id=milk>
                   <!--CLICKER UPGRADES-->
                   <button id="Bmilk" title="Doubles the amount of bones per click." class="button">Buy Milk: 50 bones</button>
@@ -54,14 +55,13 @@
         </div>
 
         <div id="Map" class="tabcontent"> 
-          <h1 style="color:white">Under Construction!!!</h1>
+          <h1>Under Construction!!!</h1>
         </div>
 
         <!--SETTINGS-->
         <div id="Settings" class="tabcontent">
           <div id="saveButton">
-            <button id="saveBtn" title="Save">Save</button> <button id="wipeBtn" title="wipe save" style="color: red;padding-right: 3px;">WIPE SAVE</button>
-            <br>
+            <button id="wipeBtn" title="wipe save" style="color: red;padding-right: 3px;">WIPE SAVE</button>
           </div>
         </div>
         
@@ -71,13 +71,13 @@
         <div id="buttons" style="float: right;">
         </div>
         
-        <div id="status" style="color: white;">
+        <div id="alert">
         </div>
    
-        <script src="main.js"></script>
+        <script src="assets/js/main.js"></script>
         <script>
             function openTab(evt, tabName) {
-              var i, tabcontent, tablinks;
+              let i, tabcontent, tablinks;
               tabcontent = document.getElementsByClassName("tabcontent");
               for (i = 0; i < tabcontent.length; i++) {
                 tabcontent[i].style.display = "none";
@@ -89,6 +89,6 @@
               document.getElementById(tabName).style.display = "block";
               evt.currentTarget.className += " active";
             }
-            </script>
+        </script>
     </body>
 </html>
