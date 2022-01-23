@@ -1,4 +1,5 @@
 body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: white;
     background-color: #343434;
 }
@@ -10,9 +11,8 @@ body {
 #buttons {
     text-align: right;
 }
-#SkeleAssign {
+#skeletonDemographic {
     font-size: x-large;
-    
 }
 
 .button {
@@ -22,6 +22,7 @@ body {
     font-size: 15px;
     color: #ffffff;
 }
+
 .tab {
     overflow: hidden;
     background-color: #343434;
@@ -45,7 +46,6 @@ body {
     background-color: #404040;
     color:#ffffff;
 }
-
 
 .tabcontent {
     display: none;

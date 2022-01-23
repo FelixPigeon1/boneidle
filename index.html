@@ -7,14 +7,14 @@
         <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
         <link rel="stylesheet" href="assets/style.css">
     </head>
-    <body onload="openTab(event, 'Production')">
+    <body onload="openTab(event, 'productionTab')">
         <img src = "assets/images/header.png" alt="Bone Idle" class="center" width ="200" height ="40">
 
         <div class="tab">
-            <button class="tablinks" onclick="openTab(event, 'Production')">Production</button>
-            <button class="tablinks" onclick="openTab(event, 'Upgrades')">Upgrades</button>
-            <button class="tablinks" onclick="openTab(event, 'Map')">Map</button>
-            <button class="tablinks" onclick="openTab(event, 'Settings')">Settings</button>
+          <button class="tablinks" onclick="openTab(event, 'productionTab')">Production</button>
+          <button class="tablinks" onclick="openTab(event, 'upgradesTab')">Upgrades</button>
+          <button class="tablinks" onclick="openTab(event, 'mapTab')">Map</button>
+          <button class="tablinks" onclick="openTab(event, 'settingsTab')">Settings</button>
         </div>
 
         <div id="bones">
@@ -22,44 +22,43 @@
         </div>
 
         <!--PRODUCTION-->
-        <div id="Production" class="tabcontent">
-            <img id="clicker" src = "assets/images/bone.png" alt="buttonpress" class="boneclicker"/>
-            <br>
-            <button id="skeletons" class="button">Buy Skeleton: 206</button>
-                <div id="SkeleButtons" style="padding-top: 5px">
-                    <button id="warriorButton" class="button">Train Warrior</button>
-                    <button id="alchemistButton" class="button">Train Alchemist</button>
-                    <button id="workerButton" class="button">Train Worker</button>
-                    <br>
-                    <p id="SkeleAssign"></p>
-                </div>    
+        <div id="productionTab" class="tabcontent">
+          <img id="clicker" src = "assets/images/bone.png" alt="buttonpress" class="boneclicker"/>
+          <br>
+          <button id="skeletonPurchase" class="button">Buy Skeleton: 206</button>
+          <div id="skeletonJobs" style="padding-top: 5px">
+            <button id="warriorBuy" class="button">Train Warrior</button>
+            <button id="alchemistBuy" class="button">Train Alchemist</button>
+            <button id="workerBuy" class="button">Train Worker</button>
+            <p id="skeletonDemographic">Warriors: 0 Alchemists: 0 Workers: 0</p>
+          </div>    
         </div>
         
         <!--UPGRADES-->
-        <div id="Upgrades" class="tabcontent">
-            <div id = "upgrades">
-                <p>UPGRADES:</p>
-                <div id=milk>
-                  <!--CLICKER UPGRADES-->
-                  <button id="Bmilk" title="Doubles the amount of bones per click." class="button">Buy Milk: 50 bones</button>
-                </div>
-                <div id="tools">
-                  <!--WORKER UPGRADES-->
-                  <button id="Btools" title="Doubles prodution of worker skeletons" class="button">Buy Tools: 50 bones<span style="color: red;"> Need 1 Alchemist!</span></button>
-                </div>
-                <div id = "weapons">
-                  <!--ARMY UPGRADES-->
-                  <button id="Bweapons" title="Makes warriors deal more damage" class="button">Buy Weapons: 75 bones<span style="color: red;"> Need 1 Alchemist!</span></button>
-                </div>
+        <div id="upgradesTab" class="tabcontent">
+          <div id="upgrades">
+            <p>UPGRADES:</p>
+            <div id="milk">
+              <!--CLICKER UPGRADES-->
+              <button id="Bmilk" title="Doubles the amount of bones per click." class="button">Buy Milk: 50 bones</button>
             </div>
+            <div id="tools">
+              <!--WORKER UPGRADES-->
+              <button id="Btools" title="Doubles prodution of worker skeletons" class="button">Buy Tools: 50 bones<span style="color: red;"> Need 1 Alchemist!</span></button>
+            </div>
+            <div id="weapons">
+              <!--ARMY UPGRADES-->
+              <button id="Bweapons" title="Makes warriors deal more damage" class="button">Buy Weapons: 75 bones<span style="color: red;"> Need 1 Alchemist!</span></button>
+            </div>
+          </div>
         </div>
 
-        <div id="Map" class="tabcontent"> 
+        <div id="mapTab" class="tabcontent"> 
           <h1>Under Construction!!!</h1>
         </div>
 
         <!--SETTINGS-->
-        <div id="Settings" class="tabcontent">
+        <div id="settingsTab" class="tabcontent">
           <div id="saveButton">
             <button id="wipeBtn" title="wipe save" style="color: red;padding-right: 3px;">WIPE SAVE</button>
           </div>
@@ -75,6 +74,7 @@
         </div>
    
         <script src="assets/js/main.js"></script>
+        <script src="assets/js/buttonListeners.js"></script>
         <script>
             function openTab(evt, tabName) {
               let i, tabcontent, tablinks;
