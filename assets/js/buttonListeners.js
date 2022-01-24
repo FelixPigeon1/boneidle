@@ -46,6 +46,26 @@ document.getElementById("skeletonPurchase").onclick = function() {
         containers.alert.innerHTML = "Not enough bones!"
     }
 }
+document.getElementById("skeletonPurchase10").onclick = function() {
+    if (count.bones >= 2060){
+        count.bones -= 2060
+        count.skeletons += 10
+        containers.skeletonsJobs.style.display = "block"
+    }
+    else {
+        containers.alert.innerHTML = "Not enough bones!"
+    }
+}
+document.getElementById("skeletonPurchase100").onclick = function() {
+    if (count.bones >= 20600){
+        count.bones -= 20600
+        count.skeletons += 100
+        containers.skeletonsJobs.style.display = "block"
+    }
+    else {
+        containers.alert.innerHTML = "Not enough bones!"
+    }
+}
 
 document.getElementById("milk").onclick = function() {
     if (count.bones >= 50){
