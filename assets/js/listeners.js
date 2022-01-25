@@ -2,6 +2,38 @@
 // PURCHASES //
 ///////////////
 
+document.getElementById("skeletonPurchase").onclick = function(e) {
+    if (e.shiftKey == true) {
+        if (count.bones >= 2060) {
+            count.bones -= 2060
+            count.skeletons += 10
+        }
+        else {
+            containers.alert.innerHTML = "Not enough bones!"
+        }        
+    }
+
+    else if (e.ctrlKey == true) {
+        if (count.bones >= 20600) {
+            count.bones -= 20600
+            count.skeletons += 100
+        }
+        else {
+            containers.alert.innerHTML = "Not enough bones!"
+        }
+    }
+
+    else if (count.bones >= 206) {
+        count.bones -= 206
+        count.skeletons++
+        containers.skeletonsJobs.style.display = "block"
+    }
+     else {
+        containers.alert.innerHTML = "Not enough bones!"
+    }
+  
+}
+
 theAlmightyBone.onclick = function() {
     count.bones += production.clickValue
     containers.alert.innerHTML = ""
@@ -35,43 +67,6 @@ document.getElementById("workerBuy").onclick = function() {
 //////////////
 // UPGRADES //
 //////////////
-
-document.getElementById("skeletonPurchase").onclick = function(e) {
-    if (e.shiftKey == true)
-    {
-        console.log(e.shiftKey)
-        if (count.bones >= 2060)
-        {
-            count.bones -= 2060
-            count.skeletons += 10
-        }
-        else {
-            containers.alert.innerHTML = "Not enough bones!"
-        }        
-    }
-
-    else if (e.ctrlKey == true)
-    {
-        if (count.bones >= 20600)
-        {
-            count.bones -= 20600
-            count.skeletons += 100
-        }
-        else {
-            containers.alert.innerHTML = "Not enough bones!"
-        }
-    }
-
-    else if (count.bones >= 206){
-        count.bones -= 206
-        count.skeletons++
-        containers.skeletonsJobs.style.display = "block"
-    }
-     else {
-        containers.alert.innerHTML = "Not enough bones!"
-    }
-  
-}
 
 document.getElementById("milk").onclick = function() {
     if (count.bones >= 50){
@@ -125,4 +120,15 @@ document.getElementById("wipeBtn").onclick = function() {
     {
         wipeData()
     }
+}
+
+///////////
+// OTHER //
+///////////
+
+window.onkeydown = function(key) {
+    pressedKey = key;
+}
+window.onkeyup = function() {
+    pressedKey = NaN;
 }
