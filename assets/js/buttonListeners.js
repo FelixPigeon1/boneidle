@@ -36,35 +36,41 @@ document.getElementById("workerBuy").onclick = function() {
 // UPGRADES //
 //////////////
 
-document.getElementById("skeletonPurchase").onclick = function() {
-    if (count.bones >= 206){
+document.getElementById("skeletonPurchase").onclick = function(e) {
+    if (e.shiftKey == true)
+    {
+        console.log(e.shiftKey)
+        if (count.bones >= 2060)
+        {
+            count.bones -= 2060
+            count.skeletons += 10
+        }
+        else {
+            containers.alert.innerHTML = "Not enough bones!"
+        }        
+    }
+
+    else if (e.ctrlKey == true)
+    {
+        if (count.bones >= 20600)
+        {
+            count.bones -= 20600
+            count.skeletons += 100
+        }
+        else {
+            containers.alert.innerHTML = "Not enough bones!"
+        }
+    }
+
+    else if (count.bones >= 206){
         count.bones -= 206
         count.skeletons++
         containers.skeletonsJobs.style.display = "block"
     }
-    else {
+     else {
         containers.alert.innerHTML = "Not enough bones!"
     }
-}
-document.getElementById("skeletonPurchase10").onclick = function() {
-    if (count.bones >= 2060){
-        count.bones -= 2060
-        count.skeletons += 10
-        containers.skeletonsJobs.style.display = "block"
-    }
-    else {
-        containers.alert.innerHTML = "Not enough bones!"
-    }
-}
-document.getElementById("skeletonPurchase100").onclick = function() {
-    if (count.bones >= 20600){
-        count.bones -= 20600
-        count.skeletons += 100
-        containers.skeletonsJobs.style.display = "block"
-    }
-    else {
-        containers.alert.innerHTML = "Not enough bones!"
-    }
+  
 }
 
 document.getElementById("milk").onclick = function() {
