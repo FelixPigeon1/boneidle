@@ -2,12 +2,11 @@
 // PURCHASES //
 ///////////////
 
-document.getElementById("clicker").onclick = function() {
-    count.bones += production.click
-    containers.boneStatus.innerHTML = "Bones: " + count.bones + " Skeletons: " + count.skeletons
+theAlmightyBone.onclick = function() {
+    count.bones += production.clickValue
     containers.alert.innerHTML = ""
 
-    document.getElementById("clicker").src = "assets/images/boneSmall.png"
+    theAlmightyBone.src = "assets/images/boneSmall.png"
 }
 
 document.getElementById("warriorBuy").onclick = function() {
@@ -29,6 +28,7 @@ document.getElementById("workerBuy").onclick = function() {
     if (count.skeletons >= 1) {
         count.skeletons--
         count.workers++
+        production.bps++
     }
 }
 
@@ -76,7 +76,7 @@ document.getElementById("skeletonPurchase").onclick = function(e) {
 document.getElementById("milk").onclick = function() {
     if (count.bones >= 50){
         count.bones -= 50
-        production.click *= 2
+        production.clickValue *= 2
         const milkbutton = document.getElementById("milk")
         milkbutton.style.display = "none"
 
@@ -88,8 +88,8 @@ document.getElementById("milk").onclick = function() {
 
 document.getElementById("tools").onclick = function() {
     if (count.bones >= 50 && count.alchemists >= 1) {
-        count.bones-= 50
-        production.work *= 2
+        count.bones -= 50
+        production.workModifier *= 2
         const toolsbutton = document.getElementById("tools")
         toolsbutton.style.display = "none"
         
@@ -106,7 +106,7 @@ document.getElementById("tools").onclick = function() {
 document.getElementById("weapons").onclick = function() {
     if (count.bones >= 50 && count.alchemists >= 1) {
         count.bones -= 50
-        production.work *= 2
+        production.workModifier *= 2
         const weaponsbutton = document.getElementById("weapons")
         weaponsbutton.style.display = "none"
     }
