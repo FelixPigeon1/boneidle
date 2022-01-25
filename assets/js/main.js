@@ -16,16 +16,12 @@ const containers = {
     skeletonDemographic: document.getElementById("skeletonDemographic")
 }
 
-setInterval(bps, 10)
-setInterval(displayData, 10)
+setInterval(updateGame, 10)
 setInterval(saveData, 10000)
 setInterval(() => {theAlmightyBone.src = "assets/images/bone.png"}, 180)
 
-function bps() {
+function updateGame() {
     count.bones += production.bps * 0.01
-}
-
-function displayData() {
     containers.boneStatus.innerHTML = "BPS: " + production.bps + " Bones: " + Math.round(count.bones) + " Skeletons: " + count.skeletons
     containers.skeletonDemographic.innerHTML = "Warriors: " + count.warriors + " Alchemists: " + count.alchemists + " Workers: " + count.workers
     if (count.alchemists >= 1) {
