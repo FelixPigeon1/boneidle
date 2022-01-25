@@ -4,7 +4,6 @@
 
 theAlmightyBone.onclick = function() {
     count.bones += production.click
-    containers.boneStatus.innerHTML = "Bones: " + count.bones + " Skeletons: " + count.skeletons
     containers.alert.innerHTML = ""
 
     theAlmightyBone.src = "assets/images/boneSmall.png"
@@ -29,6 +28,7 @@ document.getElementById("workerBuy").onclick = function() {
     if (count.skeletons >= 1) {
         count.skeletons--
         count.workers++
+        production.bps++
     }
 }
 
@@ -82,7 +82,7 @@ document.getElementById("milk").onclick = function() {
 
 document.getElementById("tools").onclick = function() {
     if (count.bones >= 50 && count.alchemists >= 1) {
-        count.bones-= 50
+        count.bones -= 50
         production.work *= 2
         const toolsbutton = document.getElementById("tools")
         toolsbutton.style.display = "none"
