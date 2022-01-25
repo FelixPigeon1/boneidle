@@ -2,8 +2,8 @@
 // PURCHASES //
 ///////////////
 
-document.getElementById("skeletonPurchase").onclick = function(e) {
-    if (e.shiftKey == true) {
+document.getElementById("skeletonPurchase").onclick = function(key) {
+    if (key.shiftKey == true) {
         if (count.bones >= 2060) {
             count.bones -= 2060
             count.skeletons += 10
@@ -13,7 +13,7 @@ document.getElementById("skeletonPurchase").onclick = function(e) {
         }        
     }
 
-    else if (e.ctrlKey == true) {
+    else if (key.ctrlKey == true) {
         if (count.bones >= 20600) {
             count.bones -= 20600
             count.skeletons += 100
