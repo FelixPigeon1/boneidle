@@ -34,6 +34,8 @@ function totalCounter() {
     }
 }
 
+
+
 function saveData() {
     localStorage.setItem("save_data", true)
     localStorage.setItem("count", JSON.stringify(count))
