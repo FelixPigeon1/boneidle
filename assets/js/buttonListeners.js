@@ -3,7 +3,7 @@
 ///////////////
 
 theAlmightyBone.onclick = function() {
-    count.bones += production.click
+    count.bones += production.clickValue
     containers.alert.innerHTML = ""
 
     theAlmightyBone.src = "assets/images/boneSmall.png"
@@ -70,7 +70,7 @@ document.getElementById("skeletonPurchase100").onclick = function() {
 document.getElementById("milk").onclick = function() {
     if (count.bones >= 50){
         count.bones -= 50
-        production.click *= 2
+        production.clickValue *= 2
         const milkbutton = document.getElementById("milk")
         milkbutton.style.display = "none"
 
@@ -83,7 +83,7 @@ document.getElementById("milk").onclick = function() {
 document.getElementById("tools").onclick = function() {
     if (count.bones >= 50 && count.alchemists >= 1) {
         count.bones -= 50
-        production.work *= 2
+        production.workModifier *= 2
         const toolsbutton = document.getElementById("tools")
         toolsbutton.style.display = "none"
         
@@ -100,7 +100,7 @@ document.getElementById("tools").onclick = function() {
 document.getElementById("weapons").onclick = function() {
     if (count.bones >= 50 && count.alchemists >= 1) {
         count.bones -= 50
-        production.work *= 2
+        production.workModifier *= 2
         const weaponsbutton = document.getElementById("weapons")
         weaponsbutton.style.display = "none"
     }

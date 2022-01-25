@@ -1,5 +1,5 @@
-let production = {click: 1, bps: 0, work: 0}
-let count = {workers: 0, alchemists: 0, warriors: 0, skeletons: 0, bones: 0}
+let production = {clickValue: 1, bps: 0, workModifier: 0}
+let count = {bones: 0, skeletons: 0, workers: 0, alchemists: 0, warriors: 0}
 
 //Dectects if a save exsists, if not, sets all values to default. 
 if (localStorage.getItem("save_data")) {
