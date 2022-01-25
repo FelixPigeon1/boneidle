@@ -7,6 +7,7 @@ if (localStorage.getItem("save_data")) {
 }
 
 const containers = {
+    theAlmightyBone: document.getElementById("theAlmightyBone"),
     boneStatus: document.getElementById("bones"),
     alert: document.getElementById("alert"),
     upgrades: document.getElementById("upgrades"),
@@ -18,7 +19,7 @@ const containers = {
 setInterval(bps, 1000)
 setInterval(totalCounter, 10)
 setInterval(saveData, 10000)
-setInterval(() => {document.getElementById("clicker").src = "assets/images/bone.png"}, 180)
+setInterval(() => {theAlmightyBone.src = "assets/images/bone.png"}, 180)
 
 function bps() {
     count.bones += count.workers * production.work

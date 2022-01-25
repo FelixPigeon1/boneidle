@@ -2,12 +2,12 @@
 // PURCHASES //
 ///////////////
 
-document.getElementById("clicker").onclick = function() {
+theAlmightyBone.onclick = function() {
     count.bones += production.click
     containers.boneStatus.innerHTML = "Bones: " + count.bones + " Skeletons: " + count.skeletons
     containers.alert.innerHTML = ""
 
-    document.getElementById("clicker").src = "assets/images/boneSmall.png"
+    theAlmightyBone.src = "assets/images/boneSmall.png"
 }
 
 document.getElementById("warriorBuy").onclick = function() {
