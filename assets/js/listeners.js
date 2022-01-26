@@ -67,7 +67,7 @@ document.getElementById("tools").onclick = function() {
         toolsbutton.style.display = "none"
         
     }
-    else if (count.alchemists <= 1) {
+    else if (gameData.count.alchemists <= 1) {
         containers.alert.innerHTML = "Not Enough Alchemists!"
 
     }
@@ -83,7 +83,7 @@ document.getElementById("weapons").onclick = function() {
         const weaponsbutton = document.getElementById("weapons")
         weaponsbutton.style.display = "none"
     }
-    else if (count.alchemists <= 1) {
+    else if (gameData.count.alchemists <= 1) {
         containers.alert.innerHTML = "Not Enough Alchemists!"
 
     }
