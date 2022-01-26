@@ -1,7 +1,8 @@
 let production = {bps: 0, clickValue: 1, workModifier: 0, buyModifier: 1}
-let count = {bones: 0, timebones: 0, skeletons: 0, workers: 0, alchemists: 0, warriors: 0}
+let count = {bones: 0, gashadokuro: 0, skeletons: 0, workers: 0, alchemists: 0, warriors: 0}
 let upgrades = {milk: false, tools: false, weapons: false}
 let pressedKey = NaN
+let version = 0.3
 
 if (localStorage.getItem("saveData")) {
     loadData()
@@ -25,7 +26,7 @@ setInterval(saveData, 10000)
 setInterval(() => {theAlmightyBone.src = "assets/images/bone.png"}, 180)
 
 function updateGame() {
-    count.bones += production.bps * 0.01
+    count.bones += production.bps * 0.01 * (count.gashadokuro + 1)
     containers.boneStatus.innerHTML = "BPS: " + production.bps + " Bones: " + Math.round(count.bones) + " Skeletons: " + count.skeletons
     containers.skeletonDemographic.innerHTML = "Warriors: " + count.warriors + " Alchemists: " + count.alchemists + " Workers: " + count.workers
     
@@ -35,33 +36,22 @@ function updateGame() {
     }
 
     if (pressedKey.shiftKey == true) {
-        containers.skeletonBuy.innerHTML = "Buy 10 Skeletons: 2060"
-        containers.warriorBuy.innerHTML = "Train 10 Warriors"
-        containers.alchemistBuy.innerHTML = "Train 10 Alchemists"
-        containers.workerBuy.innerHTML= "Train 10 Workers"
-
         production.buyModifier = 10
     }
     else if (pressedKey.ctrlKey == true) {
-        containers.skeletonBuy.innerHTML = "Buy 100 Skeletons: 20600"
-        containers.warriorBuy.innerHTML = "Train 100 Warriors"
-        containers.alchemistBuy.innerHTML = "Train 100 Alchemists"
-        containers.workerBuy.innerHTML = "Train 100 Workers"
-        
         production.buyModifier = 100
     }
     else {
-        containers.skeletonBuy.innerHTML = "Buy 1 Skeleton: 206"
-        containers.warriorBuy.innerHTML = "Train Warrior"
-        containers.alchemistBuy.innerHTML = "Train Alchemist"
-        containers.workerBuy.innerHTML = "Train Worker"
-
         production.buyModifier = 1
     }
+    containers.skeletonBuy.innerHTML = "Buy " + production.buyModifier + " Skeleton(s): 2060"
+    containers.warriorBuy.innerHTML = "Train " + production.buyModifier + " Warrior(s)"
+    containers.alchemistBuy.innerHTML = "Train " + production.buyModifier + " Alchemist(s)"
+    containers.workerBuy.innerHTML= "Train " + production.buyModifier + " Worker(s)"
 }
 
 function saveData() {
-    localStorage.setItem("version", 0.2)
+    localStorage.setItem("version", version)
     localStorage.setItem("saveData", true)
     localStorage.setItem("count", JSON.stringify(count))
     localStorage.setItem("production", JSON.stringify(production))
@@ -69,9 +59,9 @@ function saveData() {
 
 function loadData() {
     // the little + converts strings to floats
-    if (+localStorage.getItem("version") < 0.2) {
+    if (+localStorage.getItem("version") < version) {
         wipeData()
-        localStorage.setItem("version", 0.2)
+        localStorage.setItem("version", version)
         location.reload()
     }
     count = JSON.parse(localStorage.getItem("count"))
