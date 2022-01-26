@@ -44,7 +44,7 @@ function updateGame() {
     else {
         production.buyModifier = 1
     }
-    containers.skeletonBuy.innerHTML = "Buy " + production.buyModifier + " Skeleton(s): 2060"
+    containers.skeletonBuy.innerHTML = "Buy " + production.buyModifier + " Skeleton(s): " + (206 * production.buyModifier)
     containers.warriorBuy.innerHTML = "Train " + production.buyModifier + " Warrior(s)"
     containers.alchemistBuy.innerHTML = "Train " + production.buyModifier + " Alchemist(s)"
     containers.workerBuy.innerHTML= "Train " + production.buyModifier + " Worker(s)"
