@@ -1,11 +1,13 @@
 let production = {bps: 0, clickValue: 1, workModifier: 0, buyModifier: 1}
 let count = {bones: 0, gashadokuro: 0, skeletons: 0, workers: 0, alchemists: 0, warriors: 0}
+let lastPlayed = 0
 let upgrades = {milk: false, tools: false, weapons: false}
 let pressedKey = NaN
 let version = 0.3
 
 if (localStorage.getItem("saveData")) {
     loadData()
+    count.bones += production.bps * (Date.now() - lastPlayed) / 1000
 }
 
 const containers = {
@@ -55,6 +57,7 @@ function saveData() {
     localStorage.setItem("saveData", true)
     localStorage.setItem("count", JSON.stringify(count))
     localStorage.setItem("production", JSON.stringify(production))
+    localStorage.setItem("lastPlayed", Date.now())
 }
 
 function loadData() {
@@ -66,6 +69,7 @@ function loadData() {
     }
     count = JSON.parse(localStorage.getItem("count"))
     production = JSON.parse(localStorage.getItem("production"))
+    lastPlayed = parseInt(localStorage.getItem("lastPlayed"))
 }
 
 function wipeData () {
@@ -73,3 +77,5 @@ function wipeData () {
     localStorage.removeItem("count")
     localStorage.removeItem("production")
 }
+
+
