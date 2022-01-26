@@ -50,8 +50,7 @@ document.getElementById("milk").onclick = function() {
     if (gameData.count.bones >= 50){
         gameData.count.bones -= 50
         gameData.production.clickValue *= 2
-        const milkbutton = document.getElementById("milk")
-        milkbutton.style.display = "none"
+        document.getElementById("milk").style.display = "none"
 
     }
     else {
@@ -63,8 +62,7 @@ document.getElementById("tools").onclick = function() {
     if (gameData.count.bones >= 50 && gameData.count.alchemists >= 1) {
         gameData.count.bones -= 50
         gameData.production.workModifier *= 2
-        const toolsbutton = document.getElementById("tools")
-        toolsbutton.style.display = "none"
+        document.getElementById("tools").style.display = "none"
         
     }
     else if (gameData.count.alchemists <= 1) {
@@ -80,8 +78,7 @@ document.getElementById("weapons").onclick = function() {
     if (gameData.count.bones >= 50 && gameData.count.alchemists >= 1) {
         gameData.count.bones -= 50
         gameData.production.workModifier *= 2
-        const weaponsbutton = document.getElementById("weapons")
-        weaponsbutton.style.display = "none"
+        document.getElementById("weapons").style.display = "none"
     }
     else if (gameData.count.alchemists <= 1) {
         containers.alert.innerHTML = "Not Enough Alchemists!"
