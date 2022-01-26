@@ -3,35 +3,13 @@
 ///////////////
 
 document.getElementById("skeletonPurchase").onclick = function(key) {
-    if (key.shiftKey == true) {
-        if (count.bones >= 2060) {
-            count.bones -= 2060
-            count.skeletons += 10
-        }
-        else {
-            containers.alert.innerHTML = "Not enough bones!"
-        }        
+    if (count.bones >= 206 * production.buyModifier) {
+            count.bones -= 206 * production.buyModifier
+            count.skeletons += production.buyModifier
     }
-
-    else if (key.ctrlKey == true) {
-        if (count.bones >= 20600) {
-            count.bones -= 20600
-            count.skeletons += 100
-        }
-        else {
-            containers.alert.innerHTML = "Not enough bones!"
-        }
-    }
-
-    else if (count.bones >= 206) {
-        count.bones -= 206
-        count.skeletons++
-        containers.skeletonsJobs.style.display = "block"
-    }
-     else {
+    else {
         containers.alert.innerHTML = "Not enough bones!"
-    }
-  
+    }        
 }
 
 theAlmightyBone.onclick = function() {
@@ -42,25 +20,25 @@ theAlmightyBone.onclick = function() {
 }
 
 document.getElementById("warriorBuy").onclick = function() {
-    if (count.skeletons >= 1) {
-        count.skeletons--
-        count.warriors++
+    if (count.skeletons >= production.buyModifier) {
+        count.skeletons -= production.buyModifier
+        count.warriors += production.buyModifier
     }
 }
 
 document.getElementById("alchemistBuy").onclick = function() {
-    if (count.skeletons >= 1) {
-        count.skeletons--
-        count.alchemists++
+    if (count.skeletons >= production.buyModifier) {
+        count.skeletons -= production.buyModifier
+        count.alchemists += production.buyModifier
         containers.upgrades.style.display = "block"
     }
 }
 
 document.getElementById("workerBuy").onclick = function() {
-    if (count.skeletons >= 1) {
-        count.skeletons--
-        count.workers++
-        production.bps++
+    if (count.skeletons >= production.buyModifier) {
+        count.skeletons -= production.buyModifier
+        count.workers += production.buyModifier
+        production.bps += production.buyModifier
     }
 }
 
@@ -115,10 +93,10 @@ document.getElementById("weapons").onclick = function() {
 }
 
 document.getElementById("wipeBtn").onclick = function() {
-    let confirm = window.confirm("THIS CANNOT BE UNDONE, CONTINUNE?")
-    if (confirm)
-    {
+    let confirm = window.confirm("THIS CANNOT BE UNDONE, CONTINUE?")
+    if (confirm) {
         wipeData()
+        location.reload()
     }
 }
 

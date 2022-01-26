@@ -1,3 +1,8 @@
+* {
+    margin: auto;
+    text-align: center;
+    margin-top: 0.5em;
+}
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: white;
@@ -19,15 +24,21 @@ body {
     margin-top: 1%;
     margin-bottom: 0.5%;
 }
+#theAlmightyBone {
+    display: block;
+}
 #upgrades * {
     display: block;
+    margin-top: 1%;
+    height: fit-content;
+    padding: 0.5em;
 }
 
 .button {
     background-color: #454545;
-    height: 100px;
-    width: 100px;
-    font-size: 15px;
+    font-size: 1em;
+    height: fit-content;
+    padding: 0.75em;
     color: #ffffff;
 }
 
@@ -54,7 +65,6 @@ body {
     background-color: #404040;
     color:#ffffff;
 }
-
 .tabcontent {
     display: none;
     padding: 6px 12px;
