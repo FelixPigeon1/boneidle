@@ -60,7 +60,7 @@ document.getElementById("milk").onclick = function() {
 }
 
 document.getElementById("tools").onclick = function() {
-    if (gameData.count.bones >= 50 && count.alchemists >= 1) {
+    if (gameData.count.bones >= 50 && gameData.count.alchemists >= 1) {
         gameData.count.bones -= 50
         gameData.production.workModifier *= 2
         const toolsbutton = document.getElementById("tools")
@@ -77,7 +77,7 @@ document.getElementById("tools").onclick = function() {
 }
 
 document.getElementById("weapons").onclick = function() {
-    if (gameData.count.bones >= 50 && count.alchemists >= 1) {
+    if (gameData.count.bones >= 50 && gameData.count.alchemists >= 1) {
         gameData.count.bones -= 50
         gameData.production.workModifier *= 2
         const weaponsbutton = document.getElementById("weapons")
