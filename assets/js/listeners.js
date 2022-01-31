@@ -50,6 +50,7 @@ document.getElementById("milk").onclick = function() {
     if (gameData.count.bones >= 50){
         gameData.count.bones -= 50
         gameData.production.clickValue *= 2
+        gameData.upgrades.milk = true 
         document.getElementById("milk").style.display = "none"
 
     }
@@ -62,6 +63,7 @@ document.getElementById("tools").onclick = function() {
     if (gameData.count.bones >= 50 && gameData.count.alchemists >= 1) {
         gameData.count.bones -= 50
         gameData.production.workModifier *= 2
+        gameData.upgrades.tools = true
         document.getElementById("tools").style.display = "none"
         
     }
@@ -78,6 +80,7 @@ document.getElementById("weapons").onclick = function() {
     if (gameData.count.bones >= 50 && gameData.count.alchemists >= 1) {
         gameData.count.bones -= 50
         gameData.production.workModifier *= 2
+        gameData.upgrades.weapons = true 
         document.getElementById("weapons").style.display = "none"
     }
     else if (gameData.count.alchemists <= 1) {
