@@ -68,4 +68,4 @@ function saveData() {
 
 function wipeData() {
     localStorage.removeItem("gameData")
-}
+}0
