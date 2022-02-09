@@ -100,6 +100,15 @@ document.getElementById("wipeBtn").onclick = function() {
     }
 }
 
+/////////
+// MAP //
+/////////
+
+// document.getElementById("us").onclick = function () {
+//     conquer(map.US, map.US.hp, map.US.reward, 0.5)
+// }
+
+
 ///////////
 // OTHER //
 ///////////
