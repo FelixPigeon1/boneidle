@@ -9,7 +9,7 @@ let pressedKey = NaN
 
 if (localStorage.getItem("gameData") != null) {
     // the little + converts strings to floats
-    if (JSON.parse(localStorage.getItem("gameData")).version < gameData.version) {
+    if (+JSON.parse(localStorage.getItem("gameData")).version < gameData.version) {
         wipeData()
         location.reload()
     }
@@ -68,4 +68,4 @@ function saveData() {
 
 function wipeData() {
     localStorage.removeItem("gameData")
-}0
+}
