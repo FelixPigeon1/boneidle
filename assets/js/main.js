@@ -25,9 +25,9 @@ const containers = {
     upgrades: document.getElementById("upgrades"),
     skeletonBuy: document.getElementById("skeletonPurchase"),
     skeletonsJobs: document.getElementById("skeletonJobs"),
-    warriorBuy: document.getElementById("warriorBuy"),
-    alchemistBuy: document.getElementById("alchemistBuy"),
-    workerBuy: document.getElementById("workerBuy"),
+    //warriorBuy: document.getElementById("warriorBuy"),
+    //alchemistBuy: document.getElementById("alchemistBuy"),
+    //workerBuy: document.getElementById("workerBuy"),
     skeletonDemographic: document.getElementById("skeletonDemographic")
 }
 
@@ -38,7 +38,7 @@ setInterval(() => {theAlmightyBone.src = "assets/images/bone.png"}, 180)
 function updateGame() {
     gameData.count.bones += gameData.production.bps * 0.01 * (gameData.count.gashadokuro + 1)
     containers.boneStatus.innerHTML = "BPS: " + gameData.production.bps + " Bones: " + Math.round(gameData.count.bones) + " Skeletons: " + gameData.count.skeletons
-    containers.skeletonDemographic.innerHTML = "Warriors: " + gameData.count.warriors + " Alchemists: " + gameData.count.alchemists + " Workers: " + gameData.count.workers
+    //containers.skeletonDemographic.innerHTML = "Warriors: " + gameData.count.warriors + " Alchemists: " + gameData.count.alchemists + " Workers: " + gameData.count.workers
     
     if (gameData.count.alchemists >= 1) {
         document.getElementById("tools").innerHTML = "Buy Tools: 100 bones"
@@ -55,9 +55,9 @@ function updateGame() {
         gameData.production.buyModifier = 1
     }
     containers.skeletonBuy.innerHTML = "Buy " + gameData.production.buyModifier + " Skeleton(s): " + (206 * gameData.production.buyModifier)
-    containers.warriorBuy.innerHTML = "Train " + gameData.production.buyModifier + " Warrior(s)"
-    containers.alchemistBuy.innerHTML = "Train " + gameData.production.buyModifier + " Alchemist(s)"
-    containers.workerBuy.innerHTML= "Train " + gameData.production.buyModifier + " Worker(s)"
+    //containers.warriorBuy.innerHTML = "Train " + gameData.production.buyModifier + " Warrior(s)"
+    //containers.alchemistBuy.innerHTML = "Train " + gameData.production.buyModifier + " Alchemist(s)"
+    //containers.workerBuy.innerHTML= "Train " + gameData.production.buyModifier + " Worker(s)"
 
     gameData.lastPlayed = Date.now()
 }

@@ -19,28 +19,28 @@ theAlmightyBone.onclick = function() {
     theAlmightyBone.src = "assets/images/boneSmall.png"
 }
 
-document.getElementById("warriorBuy").onclick = function() {
-    if (gameData.count.skeletons >= gameData.production.buyModifier) {
-        gameData.count.skeletons -= gameData.production.buyModifier
-        gameData.count.warriors += gameData.production.buyModifier
-    }
-}
+// document.getElementById("warriorBuy").onclick = function() {
+//     if (gameData.count.skeletons >= gameData.production.buyModifier) {
+//         gameData.count.skeletons -= gameData.production.buyModifier
+//         gameData.count.warriors += gameData.production.buyModifier
+//     }
+// }
 
-document.getElementById("alchemistBuy").onclick = function() {
-    if (gameData.count.skeletons >= gameData.production.buyModifier) {
-        gameData.count.skeletons -= gameData.production.buyModifier
-        gameData.count.alchemists += gameData.production.buyModifier
-        containers.upgrades.style.display = "block"
-    }
-}
+// document.getElementById("alchemistBuy").onclick = function() {
+//     if (gameData.count.skeletons >= gameData.production.buyModifier) {
+//         gameData.count.skeletons -= gameData.production.buyModifier
+//         gameData.count.alchemists += gameData.production.buyModifier
+//         containers.upgrades.style.display = "block"
+//     }
+// }
 
-document.getElementById("workerBuy").onclick = function() {
-    if (gameData.count.skeletons >= gameData.production.buyModifier) {
-        gameData.count.skeletons -= gameData.production.buyModifier
-        gameData.count.workers += gameData.production.buyModifier
-        gameData.production.bps += gameData.production.buyModifier
-    }
-}
+// document.getElementById("workerBuy").onclick = function() {
+//     if (gameData.count.skeletons >= gameData.production.buyModifier) {
+//         gameData.count.skeletons -= gameData.production.buyModifier
+//         gameData.count.workers += gameData.production.buyModifier
+//         gameData.production.bps += gameData.production.buyModifier
+//     }
+// }
 
 //////////////
 // UPGRADES //
@@ -60,32 +60,24 @@ document.getElementById("milk").onclick = function() {
 }
 
 document.getElementById("tools").onclick = function() {
-    if (gameData.count.bones >= 50 && gameData.count.alchemists >= 1) {
+    if (gameData.count.bones >= 50) {
         gameData.count.bones -= 50
         gameData.production.workModifier *= 2
         gameData.upgrades.tools = true
         document.getElementById("tools").style.display = "none"
         
     }
-    else if (gameData.count.alchemists <= 1) {
-        containers.alert.innerHTML = "Not Enough Alchemists!"
-
-    }
-    else {
+    else{
         containers.alert.innerHTML = "Not enough bones!"
     }
 }
 
 document.getElementById("weapons").onclick = function() {
-    if (gameData.count.bones >= 50 && gameData.count.alchemists >= 1) {
-        gameData.count.bones -= 50
+    if (gameData.count.bones >= 75) {
+        gameData.count.bones -= 75
         gameData.production.workModifier *= 2
         gameData.upgrades.weapons = true 
         document.getElementById("weapons").style.display = "none"
-    }
-    else if (gameData.count.alchemists <= 1) {
-        containers.alert.innerHTML = "Not Enough Alchemists!"
-
     }
     else {
         containers.alert.innerHTML = "Not enough bones!"
